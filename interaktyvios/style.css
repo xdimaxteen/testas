@@ -9,7 +9,7 @@ body{
 }
 h1,h2,h3,h4,h5,h6{
 	color:#750062;
-	text-shadow: 4px 4px 8px #872277;
+	text-shadow: 0.15em 0.15em 0.3em #872277;
 }
 ul{
 list-style:circle;
@@ -17,7 +17,7 @@ list-style:circle;
 .logo{
 	text-align:right;
 	font-size:3em;
-	line-height:42px;
+	line-height:1em;
 }
 
 /*meniu*/
@@ -27,7 +27,7 @@ list-style:circle;
 	text-decoration:none; 
 	text-transform:uppercase;
 	font-weight:bold;
-	padding:10px;
+	padding:0.5em;
 	background-color:#DCFA70;
 }
 .meniu li {
@@ -52,7 +52,7 @@ list-style:circle;
 	}
 .page-header{
 	text-align:center;
-	margin:20px;
+	margin:1.5em;
 }
 .page-footer{
 	text-align:center; 
@@ -90,15 +90,14 @@ list-style:circle;
 }
 nav{ 	
 	margin:-1px; 	
-	
 	padding:1px; 	 	
 	background-color:#882178; 
 	}
 /*forma*/
 form{
+	width:600px;
 	padding:10px;
 	font-size:1.2em;
-	width:600px;
 	margin:auto;
 }
 /*input{  border: solid purple 1px; margin-left:45px; }*/
@@ -118,7 +117,7 @@ table, td, tr, th {border: 1px solid #770064; padding:0px; margin:0px;}
 th{color:#770064; background:#D962C7}
 
 
-.answer{width:79px;padding:5px;margin:1px; height:50px;
+.answer{width:80px;padding:5px;margin:auto; height:60px;
 	color:#750062;
 	border:3px ridge purple;
 	text-transform:uppercase;
@@ -156,4 +155,57 @@ canvas {width:600px;height:350px; background:none;  outline:purple 1px solid; }
 .btn:active{
 	color:#D2FA3E;
 }
+#taskai{width:600px; margin:5px; text-align:center; font-size:1.5em;}
 
+/*quaery*/
+@media all and (max-width: 480px) and (min-width: 1px) {
+.content{width:160px;}
+body{
+	min-width:310px;
+}
+.page{ 
+	width:300px;
+	}
+.sidebar{
+	margin-left:1em; 
+	width:90px; 
+}
+.logo{
+	text-align:right;
+	font-size:2em;
+	line-height:1em;
+}
+
+canvas {width:160px;height:175px; background:none;  outline:purple 1px solid; }
+.key{height:175px;}
+#taskai{width:auto; margin:5px; text-align:center; font-size:1.5em;}
+.answer{width:34px;padding:1px;margin:1px; height:40px;
+	color:#750062;
+	border:2px ridge purple;
+	text-transform:uppercase;
+	font-weight:bold;
+	background-color:#DCFA70;
+}
+form{width:auto;}
+}
+/******************************************/
+@media all and (max-width: 769px) and (min-width: 480px) {
+body{
+	min-width:360px;
+	max-width:480px;
+}
+.page{ width:720px;}
+canvas {width:300px;height:175px; background:none;  outline:purple 1px solid; }
+.key{height:175px;}
+#taskai{width:15em; margin:5px; text-align:center; font-size:1.5em;}
+
+/**************************************************/
+@media all and (max-width: 1024px) and (min-width: 768px) {
+canvas {width:300px;height:175px; background:none;  outline:purple 1px solid; }
+.key{height:350px;}
+#taskai{width:600px; margin:5px; text-align:center; font-size:1.5em;}
+}
+@media all and (max-width: 2500px) and (min-width: 1025px) {
+.key{height:350px;}
+
+}

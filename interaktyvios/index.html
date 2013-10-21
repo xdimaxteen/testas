@@ -1,206 +1,156 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<title>Katino puslapis - pradžia</title>
+<title>Muzikos pamoka - natos</title>
 <meta charset="utf-8" />
 <meta name="keywords" content="">
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
-
+<style type="text/css">
+</style>
 </head>
-<body>
+<body onload="perpiesti();">
+
 	<div class="page clearfix">
 		<header class="page-header">
-			<h1 class="logo">Muzikinis žaidimas</h1><!-- teisingas h ir a -->
+			<h1 class="logo">Muzikos Pamoka </h1>
 		</header>
 		<nav class="page-nav">
 			<ul class="meniu">
 				<li> <a  href="./index.html">Pradžia</a> </li>
-				<li> <a  href="./irasai.html">Kažkas</a> </li>
+				
+				<li> <a  href="./apie.html">Apie</a> </li>
 			</ul>
 		</nav>
-		<div class ="col-one">
-			<p class="intro">Žaidimas!</p>
-			
- 			<canvas id="canvas">
-			</canvas>
-		
-			
-		<br>	
-		
-		<form action="process.php" method="POST">
-			<input type="checkbox" name="note" value="C">C
-			<input type="checkbox" name="note" value="D">D
-			<input type="checkbox" name="note" value="E">E 
-			<input type="checkbox" name="note" value="F">F 
-			<input type="checkbox" name="note" value="G">G 
-			<input type="checkbox" name="note" value="A">A 
-			<input type="checkbox" name="note" value="H">H 
-		</form>
-		<form name="myWebForm" action="index.php" method="post">
-				First: <input title="Please Enter Your First Name" id="first" name="first" type="text" size="18" maxlength="24" /><br>
-				Last: <input title="Please Enter Your Last Name" id="last" name="last" type="text" size="18" maxlength="24" /><br />
-				Password: <input type="password" title="Please Enter Your Password" size="18" maxlength="24" />
-				<br />
-				<input type="hidden" name="points" id="points" value="" /><br />
-				<input type="submit" value="SUBMIT" />
-				<input type="reset" value="RESET" />
-		</form>	
-		
-		<?php 
-			$host="localhost";
-			$user="root";
-			$password="dima123";
-			$database_name="game";
-			$dbc=mysql_connect($host,$user,$password) or die ("Negaliu prisijungti prie MySQL: " . mysql_error() );
-			mysql_select_db($database_name) or die ("Negaliu pasirinkti duomenu baze: " . mysql_error() );
-				echo"meee";
-			if (isset($_POST["ok"])){
-			$query = "INSERT INTO deiost (first, last, points) VALUES (."$_POST['first']."', '".$_POST['last']."', '".$_POST['points']."')";
-			$result = @mysql_query ($query);
-
-			}
-			//isemimas
-			$query = "SELECT * FROM deimasostreika ORDER BY data DESC;";
-			$result = @mysql_query ($query);
-			while ($row=mysql_fetch_array($result)){
-			echo $row["zinute"] ;
-
-			}
-
-			mysql_close();
-		?>
+		<div class ="content-wrapper clearfix">
+			<div id="taskai" ><b>0</b></div>
+			<div class="sidebar">
+				<img class="key" alt="Smuiko raktas" src="key.png">
+			</div>
+			<div class="content">
+				<canvas	id="canvas" width="600" height="350"></canvas>
+			</div>			
 		</div><!--content wrapper-->
-		<footer class="page-footer">
-			<p>© Deimas Ostreika, 2013 </p>
+		<form name="atsakymai1" >
+			<input class="answer" type="button" name="7" value="C"  onclick="atsakymas(this.name); perpiesti();">
+			<input class="answer" type="button" name="1" value="D"  onclick="atsakymas(this.name); perpiesti();">
+			<input class="answer" type="button" name="2" value="E"  onclick="atsakymas(this.name); perpiesti();"> 
+			<input class="answer" type="button" name="3" value="F"  onclick="atsakymas(this.name); perpiesti();">
+			<input class="answer" type="button" name="4" value="G"  onclick="atsakymas(this.name); perpiesti();">
+			<input class="answer" type="button" name="5" value="A"  onclick="atsakymas(this.name); perpiesti();">
+			<input class="answer" type="button" name="6" value="H"  onclick="atsakymas(this.name); perpiesti();">
+		</form>
+		<form name="atsakymai1" >
+			<button class="answer" type="button" name="7" value="C"  onclick="atsakymas(this.name); perpiesti();">do</button>
+			<button class="answer" type="button" name="1" value="D"  onclick="atsakymas(this.name); perpiesti();">re</button>
+			<button class="answer" type="button" name="2" value="E"  onclick="atsakymas(this.name); perpiesti();">mi</button>
+			<button class="answer" type="button" name="3" value="F"  onclick="atsakymas(this.name); perpiesti();">fa</button>
+			<button class="answer" type="button" name="4" value="G"  onclick="atsakymas(this.name); perpiesti();">sol</button>
+			<button class="answer" type="button" name="5" value="A"  onclick="atsakymas(this.name); perpiesti();">la</button>
+			<button class="answer" type="button" name="6" value="H"  onclick="atsakymas(this.name); perpiesti();">si</button>
+		</form>
+		<footer class="page-footer">		
+			<p></p>
 		</footer>
 	</div><!--page-->
-	<script type="text/javascript">
-
+<script type="text/javascript">
 var canvas = document.getElementById('canvas'),
     context = canvas.getContext('2d'),
     endPoints = [
        { x: 0, y: 0 },
-       { x: 600, y: 300 },
+       { x: 600, y: 350 },
     ],
     controlPoints = [
        { x: 0, y: 0 },
-       { x: 600, y: 300 },
+       { x: 600, y: 350 },
     ];
-
+var	points = 0;
+var note =0;
 function drawStaff(color, stepx, stepy) {
- context.save()
-
-   context.strokeStyle = color;
-   context.fillStyle = 'white';
-   context.lineWidth = 1;
- //  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-
- 
-
-   for (var i = 40; i <= 130; i += 20) {
-     context.beginPath();
-     context.moveTo(0, i);
-     context.lineTo(context.canvas.width, i);
-     context.stroke();
+	context.save()
+	context.strokeStyle = color;
+	context.lineWidth = 2;
+	for (var i = 80; i <= 260; i += 40) {
+		context.beginPath();
+		context.moveTo(0, i);
+		context.lineTo(context.canvas.width, i);
+		context.stroke();
    }
-
-   context.restore();
-
-}
-	
-function drawGrid(color, stepx, stepy) {
-   context.save()
-
-   context.strokeStyle = color;
-   context.fillStyle = '#ffffff';
-   context.lineWidth = 0.5;
-   context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-
-   for (var i = stepx + 0.5; i < context.canvas.width; i += stepx) {
-     context.beginPath();
-     context.moveTo(i, 0);
-     context.lineTo(i, context.canvas.height);
-     context.stroke();
-   }
-
-   for (var i = stepy + 0.5; i < context.canvas.height; i += stepy) {
-     context.beginPath();
-     context.moveTo(0, i);
-     context.lineTo(context.canvas.width, i);
-     context.stroke();
-   }
-
    context.restore();
 }
-
-function drawBezierCurve() {
-   context.strokeStyle = 'blue';
-   context.fillStyle = 'yellow';
-
-   context.beginPath();
-   context.moveTo(endPoints[0].x, endPoints[0].y);
-   context.bezierCurveTo(controlPoints[0].x, controlPoints[0].y,
-                         controlPoints[1].x, controlPoints[1].y,
-                         endPoints[1].x, endPoints[1].y);
-   context.stroke();
-}
-
-
-
-
 function drawOval(centerY, centerX, radius){
-      // save state
-      context.save();
-      
-      // scale context horizontally
-     // context.scale(2, 1);
-      // draw circle which will be stretched into an oval
-      context.beginPath();
-      context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	  context.fill();
-//kojele
-	 context.beginPath();
-	 context.moveTo(centerX+radius-1, centerY);
-     context.lineTo(centerX+radius-1, centerY-35);
-     context.stroke();
-	  
-      // restore to original state
-      context.restore();
-      // apply styling
-      context.fillStyle = '#8ED6FF';
-	  context.fillStyle = 'black';
-     
-      context.lineWidth = 1;
-      context.strokeStyle = 'black';
-      context.stroke();
+    context.save();
+    context.beginPath();//  circle
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+	context.fill();
+	context.beginPath();//kojele
+	context.moveTo(centerX+radius-1, centerY);
+    context.lineTo(centerX+radius-1, centerY-70);
+    context.stroke();
+    context.restore();
+	context.fillStyle = 'black';
+    context.lineWidth = 5;
+    context.strokeStyle = 'black';
+    context.stroke();
+	context.restore();
 }
-function taskuRasymas()
-{
-var x=document.getElementById("points");
-x.innerHTML=100;
+function drawNote(){
+note = Math.floor((Math.random()*10)+1);
+switch(note){
+case 1:
+  drawOval(260,300,15);
+  break;
+case 2:
+    drawOval(240,300,15);
+  break;
+case 3:
+    drawOval(220,300,15);
+  break;
+case 4:
+    drawOval(200,300,15);
+  break;
+case 5:
+    drawOval(180,300,15);
+  break;
+case 6:
+    drawOval(160,300,15);
+  break;  
+case 7:
+    drawOval(140,300,15);
+  break; 
+case 8:
+    drawOval(120,300,15);
+  break; 
+case 9:
+    drawOval(100,300,15);
+	 break; 
+case 10:
+    drawOval(80,300,15);
+  break;  
+default:
+	drawOval(80,300,15);
+  break;  
 }
-
-function atsitiktinis1i8()
-{
-var x=document.getElementById("demo")
-x.innerHTML=Math.floor((Math.random()*10+1)%8);
 }
+function atsakymas(reiksme){
 
-
-/*
-document.getElementById("ats1").innerHTML="<p>Atsakymas1</p>";
-document.getElementById("ats2").innerHTML="<p>Atsakymas2</p>";
-document.getElementById("ats3").innerHTML="<p>Atsakymas3</p>";
-*/
-function mine() {
- for (var i = 30; i <= 270; i += 30) {
-		drawOval(50,i,5);
-   }}
-
+var temp = parseInt(reiksme)+7;
+	if(reiksme == note || note == temp ){
+		points+=1;
+		document.getElementById("taskai").value = points;
+	}
+	else{
+		points-=1;
+		document.getElementById("taskai").value = points;
+	}
+		var y=document.getElementById("taskai");
+		y.innerHTML=points;
+		
+}
+function perpiesti(){
+context.clearRect(0, 0, canvas.width, canvas.height);
 drawStaff('black', 10, 10);
-mine();
-taskuRasymas();
-
+drawNote();
+}
 </script>
 </body>
 </html>
