@@ -9,28 +9,49 @@
 </style>
 </head>
 <body onload="perpiesti();">
-
 	<div class="page clearfix">
-		<header class="page-header">
-			<h1 class="logo">Muzikos Pamoka </h1>
-		</header>
 		<nav class="page-nav">
+			<h1 class="logo">Muzikos Pamoka </h1>
 			<ul class="meniu">
+				<li><a>=</a></li>
 				<li> <a  href="./index.html">Pradžia</a> </li>
 				
 				<li> <a  href="./apie.html">Apie</a> </li>
 			</ul>
 		</nav>
-		<div class ="content-wrapper clearfix">
-			<div id="taskai" ><b>0</b></div>
-			<div class="sidebar">
-				<img class="key" alt="Smuiko raktas" src="key.png">
-			</div>
-			<div class="content">
-				<canvas	id="canvas" width="600" height="350"></canvas>
-			</div>			
-		</div><!--content wrapper-->
-		<form name="atsakymai1" >
+		
+		<div class="mid">
+			<div class ="content-wrapper clearfix">
+				<!--<div id="taskai" ><b>0</b></div>-->
+				<div class="sidebar">
+					<img class="key" alt="Smuiko raktas" src="key.png">
+				</div>
+				<div class="content">
+					<canvas	id="canvas" width="600" height="350"></canvas>
+				</div>			
+			</div><!--content wrapper-->
+		</div>
+		<div class="bot clearfix">
+							<div id="p-wrapper">
+								<ul class="piano-ul" id="piano">
+									<!--<li><div class="anchor"></div></li>
+									<li><div class="anchor"></div><span></span></li>-->
+									<li><div class="anchor"></div><!--<span></span>--></li>
+									<li><div class="anchor"><p class="name">Do</p></div></li>
+									<li><div class="anchor"><p class="name">Re</p></div><span></span></li>
+									<li><div class="anchor"><p class="name">Me</p></div><span></span></li>
+									<li><div class="anchor"><p class="name">Fa</p></div></li>
+									<li><div class="anchor"><p class="name">Sol</p></div><span></span></li>
+									<li><div class="anchor"><p class="name">La </p></div><span></span></li>
+									<li><div class="anchor"><p class="name">Si </p></div><span></span></li>
+									<li><div class="anchor"><p class="name">Do </p></div><span></span></li>									
+									<li><div class="anchor"></div></li>
+									
+
+								</ul>
+							</div>
+		</div>
+	<!--	<form name="atsakymai1" >
 			<input class="answer" type="button" name="7" value="C"  onclick="atsakymas(this.name); perpiesti();">
 			<input class="answer" type="button" name="1" value="D"  onclick="atsakymas(this.name); perpiesti();">
 			<input class="answer" type="button" name="2" value="E"  onclick="atsakymas(this.name); perpiesti();"> 
@@ -47,7 +68,7 @@
 			<button class="answer" type="button" name="4" value="G"  onclick="atsakymas(this.name); perpiesti();">sol</button>
 			<button class="answer" type="button" name="5" value="A"  onclick="atsakymas(this.name); perpiesti();">la</button>
 			<button class="answer" type="button" name="6" value="H"  onclick="atsakymas(this.name); perpiesti();">si</button>
-		</form>
+		</form>-->
 		<footer class="page-footer">		
 			<p></p>
 		</footer>
@@ -150,6 +171,13 @@ function perpiesti(){
 context.clearRect(0, 0, canvas.width, canvas.height);
 drawStaff('black', 10, 10);
 drawNote();
+context.font = "bold 32px sans-serif";
+context.fillText("Taškai:", 450, 300);
+
+ context.fillText(points, 570, 300);
+
+
+
 }
 </script>
 </body>
