@@ -31,6 +31,7 @@
 				</div>			
 			</div><!--content wrapper-->
 		</div>
+		<audio id="stream" style="display:none;">
 		<div class="bot clearfix">
 							<div id="p-wrapper">
 								<ul class="piano-ul" id="piano">
@@ -169,21 +170,22 @@ var temp = parseInt(reiksme)+7;
 	//	y.innerHTML=points;
 		
 }
+function playAudio(src) { 
+
+src = '/android_asset/www/audio/'+src; 
+var media = new Media(src, success, error_error); 
+
+media.play(); 
+
+} 
 function perpiesti(){
-var clickSound = new Audio("/android_asset/www/1.mid");
-	clickSound.play();
-var clickSound = new Audio("/android_asset/www/1.wav");
-	clickSound.play();	
-var clickSound = new Audio("/android_asset/www/4.mp3");
-	clickSound.play();	
 context.clearRect(0, 0, canvas.width, canvas.height);
 drawStaff('black', 10, 10);
 drawNote();
 context.font = "bold 32px sans-serif";
 context.fillText("Taškai:", 420, 300);
 context.fillText(points, 540, 300);
-
-
+playAudio("4.mp3")
 
 }
 </script>
