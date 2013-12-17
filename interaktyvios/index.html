@@ -154,7 +154,7 @@ default:
 }
 function atsakymas(reiksme){
 
-var clickSound = new Audio("./"+reiksme+".wav");
+var clickSound = new Audio("1.mid");
 	clickSound.play();
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
@@ -170,6 +170,12 @@ var temp = parseInt(reiksme)+7;
 		
 }
 function perpiesti(){
+var clickSound = new Audio("/android_asset/www/1.mid");
+	clickSound.play();
+var clickSound = new Audio("/android_asset/www/1.wav");
+	clickSound.play();	
+var clickSound = new Audio("/android_asset/www/4.mp3");
+	clickSound.play();	
 context.clearRect(0, 0, canvas.width, canvas.height);
 drawStaff('black', 10, 10);
 drawNote();
