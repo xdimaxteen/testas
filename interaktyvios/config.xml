@@ -17,6 +17,6 @@
          Me
     </author>
 	<gap:platform name="android" />
-	<gap:plugin name="org.apache.cordova.core.Device"/>
+
 	<gap:plugin name="org.apache.cordova.media" />
 </widget>
