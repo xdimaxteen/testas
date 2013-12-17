@@ -155,8 +155,10 @@ default:
 }
 function atsakymas(reiksme){
 
-var clickSound = new Audio("1.mid");
+var clickSound = new Audio("1.wav");
 	clickSound.play();
+	playAudio("4.mp3");
+	playAudioA("4.mp3");
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
 		points+=1;
@@ -170,9 +172,17 @@ var temp = parseInt(reiksme)+7;
 	//	y.innerHTML=points;
 		
 }
+function playAudioA(src) { 
+
+src = '/android_asset/www/'+src; 
+var media = new Media(src, success, error_error); 
+
+media.play(); 
+
+} 
 function playAudio(src) { 
 
-src = '/android_asset/www/audio/'+src; 
+src = '/assets/www/'+src; 
 var media = new Media(src, success, error_error); 
 
 media.play(); 
@@ -185,7 +195,6 @@ drawNote();
 context.font = "bold 32px sans-serif";
 context.fillText("Taškai:", 420, 300);
 context.fillText(points, 540, 300);
-playAudio("4.mp3")
 
 }
 </script>
