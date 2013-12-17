@@ -154,7 +154,7 @@ default:
 }
 function atsakymas(reiksme){
 
-var clickSound = new Audio(reiksme+'.mp3');
+var clickSound = new Audio("./"+reiksme+".wav");
 	clickSound.play();
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
