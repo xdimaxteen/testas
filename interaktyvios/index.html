@@ -13,7 +13,7 @@
 		<nav class="page-nav">
 			<h1 class="logo">Muzikos Pamoka </h1>
 			<ul class="meniu">
-				<li><a>=</a></li>
+				<!--<li><a>=</a></li>-->
 				<li> <a  href="./index.html">Pradžia</a> </li>
 				
 				<li> <a  href="./apie.html">Apie</a> </li>
@@ -36,22 +36,22 @@
 								<ul class="piano-ul" id="piano">
 									<!--<li><div class="anchor"></div></li>
 									<li><div class="anchor"></div><span></span></li>-->
-									<li><div class="anchor"></div><!--<span></span>--></li>
-									<li><div class="anchor"><p class="name">Do</p></div></li>
-									<li><div class="anchor"><p class="name">Re</p></div><span></span></li>
-									<li><div class="anchor"><p class="name">Me</p></div><span></span></li>
-									<li><div class="anchor"><p class="name">Fa</p></div></li>
-									<li><div class="anchor"><p class="name">Sol</p></div><span></span></li>
-									<li><div class="anchor"><p class="name">La </p></div><span></span></li>
-									<li><div class="anchor"><p class="name">Si </p></div><span></span></li>
-									<li><div class="anchor"><p class="name">Do </p></div><span></span></li>									
-									<li><div class="anchor"></div></li>
+									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
+									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">Do</p></button></li>
+									<li ><button class="anchor" name="1" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">Re</p></button><span></span></li>
+									<li ><button class="anchor" name="2" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">Me</p></button><span></span></li>
+									<li ><button class="anchor" name="3" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">Fa</p></button></li>
+									<li ><button class="anchor" name="4" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">Sol</p></button><span></span></li>
+									<li ><button class="anchor" name="5" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">La </p></button><span></span></li>
+									<li ><button class="anchor" name="6" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">Si </p></button><span></span></li>
+									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();"><p class="name">Do </p></button><span></span></li>									
+									<li><button class="anchor" name="0"  ></button></li>
 									
 
 								</ul>
 							</div>
 		</div>
-	<!--	<form name="atsakymai1" >
+		<!--<form name="atsakymai1" >
 			<input class="answer" type="button" name="7" value="C"  onclick="atsakymas(this.name); perpiesti();">
 			<input class="answer" type="button" name="1" value="D"  onclick="atsakymas(this.name); perpiesti();">
 			<input class="answer" type="button" name="2" value="E"  onclick="atsakymas(this.name); perpiesti();"> 
@@ -154,17 +154,19 @@ default:
 }
 function atsakymas(reiksme){
 
+var clickSound = new Audio(reiksme+'.mp3');
+	clickSound.play();
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
 		points+=1;
-		document.getElementById("taskai").value = points;
+	//	document.getElementById("taskai").value = points;
 	}
 	else{
 		points-=1;
-		document.getElementById("taskai").value = points;
+	//	document.getElementById("taskai").value = points;
 	}
-		var y=document.getElementById("taskai");
-		y.innerHTML=points;
+	//	var y=document.getElementById("taskai");
+	//	y.innerHTML=points;
 		
 }
 function perpiesti(){
@@ -172,9 +174,8 @@ context.clearRect(0, 0, canvas.width, canvas.height);
 drawStaff('black', 10, 10);
 drawNote();
 context.font = "bold 32px sans-serif";
-context.fillText("Taškai:", 450, 300);
-
- context.fillText(points, 570, 300);
+context.fillText("Taškai:", 420, 300);
+context.fillText(points, 540, 300);
 
 
 
