@@ -14,12 +14,13 @@
 		<div class="nav-inside">
 			<h1 class="logo">Muzikos Pamoka </h1>
 			<ul class="meniu">
-				<li><a href="#" onclick="rodytiMeniu(true)">Meniu</a></li>
+				<li><a href="#" onclick="rodytiMeniu(true)" id="meniu-start">Meniu</a></li>
 				
 				<ul id="meniu2" >
 					<li> <a  href="./index.html" onclick="">Pradėti</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(2)">Lygis 1</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(1)">Lygis 2</a> </li>
+					<li> <a  href="#" onclick="keistiLygi(3)">Lygis 3</a> </li>
 					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li>
 					<li> <a  href="./apie.html" onclick="rodytiMeniu(false)">Apie</a> </li>
 					<li> <a  href="#" onclick="rodytiMeniu(false)">Uždaryti</a> </li>
@@ -34,10 +35,7 @@
 		
 		<div class="mid">
 			<div class ="content-wrapper clearfix">
-				<!--<div id="taskai" ><b>0</b></div>-->
-				
 					<canvas	id="canvas" width="800" height="350"></canvas>
-					
 			</div><!--content wrapper-->
 		</div>
 		
@@ -45,8 +43,6 @@
 	
 							<div id="p-wrapper">
 								<ul class="piano-ul" id="piano">
-									<!--<li><div class="anchor"></div></li>
-									<li><div class="anchor"></div><span></span></li>-->
 									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
 									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="c" class="name">Do</p></button></li>
 									<li ><button class="anchor" name="1" type="button" value="E"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="e" class="name">Re</p></button><span></span></li>
@@ -55,8 +51,8 @@
 									<li ><button class="anchor" name="4" type="button" value="G"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="g" class="name">Sol</p></button><span></span></li>
 									<li ><button class="anchor" name="5" type="button" value="A"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="a" class="name">La </p></button><span></span></li>
 									<li ><button class="anchor" name="6" type="button" value="B"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="h" class="name">Si </p></button><span></span></li>
-									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="c2" class="name">Do </p></button><span></span></li>									
-									<li><button class="anchor" name="0"  ></button></li>
+									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="c2" class="name">Do </p></button></li>									
+									<li ><button class="anchor"  name="0"  ></button><span></span></li>
 									
 
 								</ul>
@@ -148,17 +144,11 @@ function atsakymas(reiksme){
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
 		points+=1;
-	//	document.getElementById("taskai").value = points;
 	}
 	else{
 		points-=1;
-	//	document.getElementById("taskai").value = points;
-	}
-	//	var y=document.getElementById("taskai");
-	//	y.innerHTML=points;
-		
+	}	
 }
-
 function perpiesti(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	drawStaff('black', 10, 10);
@@ -166,36 +156,26 @@ function perpiesti(){
 	context.font = "bold 48px sans-serif";
 	context.fillText("Taškai:", 450, 300);
 	context.fillText(points, 630, 300);
+	context.fillRect(750,80,7,160); 
+    context.fillRect(776,80,28,160); 
 	var img = new Image();
 	img.onload = function() {
 	context.drawImage(img, 0, -10)}
 	img.src = "key.png";
+
 }
-//playAudio("4.mp3");
-//var clickSound = new Audio("1.wav");
-	//clickSound.play();
-function playAudioAA(src) { 
-	src = '/android_asset/www/'+src; 
-	var media = new Media(src); 
-	media.play(); 
-} 
-function playAudioA(src) { 
-	src = '/assets/www/'+src; 
-	var media = new Media(src, success, error_error); 
-	media.play(); 
-} 
  function playAudio(src) {
             if (device.platform == 'Android') {;
-             //   src = '/android_asset/www/' + src;
-            }
-			// src = '/android_asset/www/' + src;
-			 
+                src = '/android_asset/www/' + src;
+            } 
             var media = new Media(src);
- 
             media.play();
         }
  function keistiLygi(lygis){
+  points = 0;
+  perpiesti();
  if(lygis == 1){
+
  var y=document.getElementById("c");
  y.innerHTML="C";
   var y=document.getElementById("d");
@@ -214,6 +194,7 @@ function playAudioA(src) {
  y.innerHTML="C";
  }
  if(lygis == 2){
+ points = 0;
  var y=document.getElementById("c");
  y.innerHTML="Do";
   var y=document.getElementById("d");
@@ -231,12 +212,32 @@ function playAudioA(src) {
   var y=document.getElementById("c2");
  y.innerHTML="Do";
  }
+ if(lygis == 3){
+ points = 0;
+ var y=document.getElementById("c");
+ y.innerHTML=" ";
+  var y=document.getElementById("d");
+ y.innerHTML=" ";
+  var y=document.getElementById("e");
+ y.innerHTML=" ";
+  var y=document.getElementById("f");
+ y.innerHTML=" "; 
+ var y=document.getElementById("g");
+ y.innerHTML=" ";
+  var y=document.getElementById("a");
+ y.innerHTML=" ";
+   var y=document.getElementById("h");
+ y.innerHTML=" ";
+  var y=document.getElementById("c2");
+ y.innerHTML=" ";
+ }
  }
 
  function rodytiMeniu(arRodyti){
  if(arRodyti){document.getElementById('meniu2').style.display = 'block';}else{document.getElementById('meniu2').style.display = 'none';}
  
 }		
+
 </script>
 </body>
 </html>

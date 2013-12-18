@@ -3,7 +3,6 @@ body{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
 	line-height:1.5em;
-	/*background:#D962C7;*/
 	background-image:url('./photo/back.jpg');
 	margin:0px;
 }
@@ -23,9 +22,6 @@ list-style:circle;
 	padding:10px;
 }
 .meniu{ display:all; float:left;padding:10px; margin-top:20px;}
-/*.meniu  li:first-child{display:all;}
-.meniu  li:first-child:hover{display:all; content: "."; 	}*/
-/*meniu*/
 .meniu a{
 	color:#750062;
 	list-style:none;
@@ -40,21 +36,13 @@ list-style:circle;
 .meniu li {
 	display:inline;
 }
-/*.meniu a:hover{ 
-	background:#FFF; 
-	color:#750062;
-}*/
 .meniu a:active{
 	color:#D962C7;
 }
 /*layout*/
 .page{ 
 	width:960px;
-	/*background-color:#FFF; */
-	/*border-radius:10px; */
 	padding:1px; 
-	
-	/*box-shadow: 5px 5px 50px rgba(0,0,0,0.4); */
 	min-height:100%;
 	margin:auto ;
 	}
@@ -113,7 +101,6 @@ form{
 	width:600px;
 	margin:auto;
 }
-/*input{  border: solid purple 1px; margin-left:45px; }*/
 label{
 	display:block; 
 	cursor:pointer;
@@ -145,6 +132,8 @@ th{color:#770064; background:#D962C7}
 	color:#D962C7;
 }
 .mid{min-height:360px;}
+#meniu2{display:none;}
+
 canvas {width:800px;height:350px; background:none;  outline:purple 1px solid; margin-left:75px; }
 #taskai {display:inline-block; background:#D962C7;  min-width:100px; border: 1px solid #750062; text-align:center; float: right;}
 .key{height:310px;}
@@ -158,26 +147,8 @@ canvas {width:800px;height:350px; background:none;  outline:purple 1px solid; ma
 	background-color:#FFF;
 	border: 1px solid #750062;
 }
-.btn  {
-	display:inline;
-}/*
-.btn:hover{ 
-	background:#D936C0; 
-	color:#750062;
-}*/
-.btn:active{
-	color:#FFF;
-}
-/*********************************************************/
-/**
- * Pure CSS3 Piano by Taufik Nurrohman
- * On: 1 December 2011
- * URL: http://hompimpaalaihumgambreng.blogspot.com/
- * Note: This experiment is under the God Almighty License.
- * Please do not replace or remove the attribution above if you want to save/modify this project legally.
- * Good luck!
- */
 
+/*********************************************************/
 :focus {
   outline:none !important;
 }
@@ -187,9 +158,7 @@ canvas {width:800px;height:350px; background:none;  outline:purple 1px solid; ma
   position:relative;
   left:0px;
   margin:auto;
-
 }
-
 /* Tuts */
 ul#piano {
   display:block;
@@ -198,7 +167,6 @@ ul#piano {
   width:800px;
     padding:0;
 }
-
 ul#piano li {
   list-style:none;
   float:left;
@@ -207,18 +175,11 @@ ul#piano li {
   width:80px;
   position:relative;
 }
-
 ul#piano li a, ul#piano li button.anchor {
-
   display:block;
   height:200px;
   width:80px;
   background:#fff;
- /* background:-webkit-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:-moz-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:-ms-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:-o-linear-gradient(-30deg,#f5f5f5,#fff);
-  background:linear-gradient(-30deg,#f5f5f5,#fff);*/
   border:1px solid #ccc;
   -webkit-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
   -moz-box-shadow:inset 0 1px 0px #fff,inset 0 -1px 0px #fff,inset 1px 0px 0px #fff,inset -1px 0px 0px #fff,0 4px 3px rgba(0,0,0,0.7);
@@ -227,7 +188,6 @@ ul#piano li a, ul#piano li button.anchor {
   -moz-border-radius:0 0 3px 3px;
   border-radius:0 0 3px 3px;
 }
-
 ul#piano li a:active,ul#piano li button.anchor:active {
   -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.4);
   -moz-box-shadow:0 2px 2px rgba(0,0,0,0.4);
@@ -236,12 +196,11 @@ ul#piano li a:active,ul#piano li button.anchor:active {
   top:2px;
   height:196px;
 }
-
 ul#piano li a:active:before,ul#piano li button.anchor:active:before {
   content:"";
   width:0px;
   height:0px;
-  border-width:206px 5px 0px;
+  border-width:196px 5px 0px;
   border-style:solid;
   border-color:transparent transparent transparent rgba(0,0,0,0.1);
   position:absolute;
@@ -253,7 +212,7 @@ ul#piano li a:active:after,ul#piano li button.anchor:active:after {
   content:"";
   width:0px;
   height:0px;
-  border-width:206px 5px 0px;
+  border-width:196px 5px 0px;
   border-style:solid;
   border-color:transparent rgba(0,0,0,0.1) transparent transparent;
   position:absolute;
@@ -273,82 +232,7 @@ ul#piano li span {
   border-width:1px 2px 7px;
   border-style:solid;
   border-color:#666 #222 #111 #555;
- /* -webkit-box-shadow:inset 0px -1px 2px rgba(255,255,255,0.4),0 2px 3px rgba(0,0,0,0.4);
-  -moz-box-shadow:inset 0px -1px 2px rgba(255,255,255,0.4),0 2px 3px rgba(0,0,0,0.4);
-  box-shadow:inset 0px -1px 2px rgba(255,255,255,0.4),0 2px 3px rgba(0,0,0,0.4);
-  -webkit-border-radius:0 0 2px 2px;
-  -moz-border-radius:0 0 2px 2px;
-  border-radius:0 0 2px 2px;*/
 }
-/*
-ul#piano li span:active {
-  border-bottom-width:2px;
-  height:123px;
-  -webkit-box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
-  -moz-box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
-  box-shadow:inset 0px -1px 1px rgba(255,255,255,0.4),0 1px 0px rgba(0,0,0,0.8),0 2px 2px rgba(0,0,0,0.4),0 -1px 0px #000;
-}*/
-
-/* Tooltips */
-ul#piano li b {
-  position:absolute;
-  top:0px;
-  margin-top:-10px;
-  background:#111;
-  color:#fff;
-  font:bold 14px 'Trebuchet MS',Arial,Sans-Serif;
-  border:2px solid #e6e6e6;
-  -webkit-border-radius:7px;
-  -moz-border-radius:7px;
-  border-radius:7px;
-  width:100px;
-  height:30px;
-  padding:10px;
-  left:-40px;
-  z-index:100;
-  visibility:hidden;
-  opacity:0;
-  -webkit-box-shadow:0 2px 10px rgba(0,0,0,0.5);
-  -moz-box-shadow:0 2px 10px rgba(0,0,0,0.5);
-  box-shadow:0 2px 10px rgba(0,0,0,0.5);
-  -webkit-transition:all 0.2s ease-out;
-  -moz-transition:all 0.2s ease-out;
-  -ms-transition:all 0.2s ease-out;
-  -o-transition:all 0.2s ease-out;
-  -transition:all 0.2s ease-out;
-}
-
-/* Tooltip Arrow */
-ul#piano li b:before {
-  content:"";
-  display:block;
-  position:absolute;
-  top:100%;
-  left:50px;
-  border-width:8px;
-  border-style:solid;
-  border-color:#e6e6e6 transparent transparent transparent;
-}
-
-ul#piano li b:after {
-  content:"";
-  display:block;
-  position:absolute;
-  top:100%;
-  left:53px;
-  border-width:5px;
-  border-style:solid;
-  border-color:#111 transparent transparent transparent;
-}
-
-ul#piano li:hover b {
-  visibility:visible;
-  opacity:1;
-  margin-top:10px;
-}
-
-
-
 ul#piano li li {
   width:150px;
   height:auto;
@@ -356,50 +240,9 @@ ul#piano li li {
   float:none;
   background:transparent;
 }
-
-ul#piano li li a,ul#piano li li a:active {
-  height:auto;
-  display:block;
-  padding:10px 15px;
-  background:#333;
-  font:normal 12px Arial,Sans-Serif;
-  color:#fff;
-  text-decoration:none;
-  -webkit-box-shadow:none;
-  -moz-box-shadow:none;
-  box-shadow:none;
-  border-radius:0px;
-  -webkit-border-radius:0px;
-  -moz-border-radius:0px;
-  border-width:1px 0;
-  border-style:solid;
-  border-color:#444 transparent #222 transparent;
-  top:0px;
-  margin-top:0px;
-}
-
-ul#piano li li a:active:before,ul#piano li li a:active:after {
-  border:none !important;
-}
-
-
-
-ul#piano li li a:hover {
-  background:#111;
-  border-top-color:#222;
-  border-bottom-color:#000;
-}
-
-
-
-
-
-
 .clear {
   clear:both;
 }
-
-
 /* Animation */
 @-webkit-keyframes taufik {
   from {opacity:0;}
@@ -413,10 +256,8 @@ ul#piano li li a:hover {
   from {opacity:0;}
   to {opacity:1;}
 }
-
 .name{	color:#750062; font-size:20px; position:relative; top:80px; font-weight:bold;}
 .mid {height:156px; margin:2px;}
-
 /*quaery*/
 /**************************************************/
 @media all and (max-width: 481px) and (min-width: 1px) {
@@ -428,11 +269,9 @@ ul#piano {
   height:80px;
   width:300px;
 }
-
 ul#piano li {
   width:30px;
 }
-
 ul#piano li a, ul#piano li button.anchor {
   height:160px;
   width:30px;
@@ -447,10 +286,7 @@ ul#piano li span {
   left:-12px;
   width:20px;
   height:80px;
-}/*
-ul#piano li span:active {
-  height:79px;
-}*/
+}
 ul#piano li a:active:after,ul#piano li button.anchor:active:after {
   content:"";
   border-width:156px 2px 0px;
@@ -474,33 +310,18 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 	margin-top:33px;
 	margin-right:3px;
 	text-transform:uppercase;
-	/*line-height:1em;*/
 }
 nav{height:70px;}
 .meniu {padding:3px; margin:3px;  margin-top:30px;}
 #meniu2{display:none; position:absolute;  padding:5px; margin:3px; background:#882178; width:100px; padding:10px;  }
 .meniu li a{padding:4px;  margin-left:3px; font-size:0.9em; 	 }
-.meniu a{
-}
-.meniu li { 
-
-	
-}
 #meniu2 li a{background:none;color:white; border-bottom: solid 1px white;
 	display:block;}
 #meniu2 li a:focus{background:#D962C7;}
-
-/*.meniu a:hover{ 
-	background:#FFF; 
-	color:#750062;
-}*/
+#meniu-start{padding:10px;}
 .meniu a:active{
 	color:#D962C7;
 }
-/*.meniu li{display:none;}
-.meniu > li:first-child{display:block;}
-.meniu > li:first-child:hover*/
-
 canvas {width:292px;height:175px; background:none;  outline:purple 1px solid; margin:2px; margin-top:20px;}
 .key{height:175px; margin-left:1px; padding:0;}
 #taskai{width:290px; margin:5px; text-align:center; font-size:1.5em;}
@@ -542,10 +363,7 @@ ul#piano li span {
   left:-12px;
   width:20px;
   height:60px;
-}/*
-ul#piano li span:active {
-  height:79px;
-}*/
+}
 ul#piano li a:active:after,ul#piano li button.anchor:active:after {
   content:"";
   border-width:108px 2px 0px;
@@ -555,20 +373,10 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
   border-width:108px 2px 0px;
 }
 /*page*/
-.page{ 
-	width:465px;
-	}
-
+.page{ 	width:465px;	}
 nav{height:50px; display:none;}
 .meniu {padding:0px; margin:0px;  margin-top:20px;}
 .meniu li a{padding:3px;  margin-left:5px;}
-.meniu li{  }
-/*.meniu li{display:none;}
-.meniu > li:first-child{display:block;}
-.meniu > li:first-child:hover*/
-
 canvas {width:460px;height:160px; background:none;  outline:purple 1px solid; margin:1px; }
 .name{	 font-size:14px; top:25px; left:-3px; padding:0; margin:0;}
-
-form{width:auto;}
 }
