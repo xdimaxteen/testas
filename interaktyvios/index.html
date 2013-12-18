@@ -153,9 +153,11 @@ function perpiesti(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	drawStaff('black', 10, 10);
 	drawNote();
-	context.font = "bold 48px sans-serif";
-	context.fillText("Taškai:", 450, 300);
-	context.fillText(points, 630, 300);
+	context.font = "bold  48px sans-serif ";
+	context.fillStyle = '#750062';
+	context.fillText("TAŠKAI:", 450, 300);
+	context.fillText(points, 650, 300);
+	context.fillStyle = 'black';
 	context.fillRect(750,80,7,160); 
     context.fillRect(776,80,28,160); 
 	var img = new Image();
