@@ -20,10 +20,12 @@
 					<li> <a  href="./index.html" onclick="">Pradėti</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(2)">Lygis 1</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(1)">Lygis 2</a> </li>
-					<li> <a  href="#" onclick="keistiLygi(1)">Išeiti</a> </li>
-					<li> <a  href="#" onclick="rodytiMeniu(false)">Uzdaryti</a> </li>
+					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li>
+					<li> <a  href="./apie.html" onclick="rodytiMeniu(false)">Apie</a> </li>
+					<li> <a  href="#" onclick="rodytiMeniu(false)">Uždaryti</a> </li>
+					
 				</ul>
-				<li> <a  href="#" onclick="navigator.app.exitApp()">Exit</a> </li> 
+				<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li> 
 			</ul>
 		</nav>
 		
@@ -43,12 +45,12 @@
 									<li><div class="anchor"></div><span></span></li>-->
 									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
 									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="c" class="name">Do</p></button></li>
-									<li ><button class="anchor" name="1" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="e" class="name">Re</p></button><span></span></li>
-									<li ><button class="anchor" name="2" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="d" class="name">Me</p></button><span></span></li>
-									<li ><button class="anchor" name="3" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="f" class="name">Fa</p></button></li>
-									<li ><button class="anchor" name="4" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="g" class="name">Sol</p></button><span></span></li>
-									<li ><button class="anchor" name="5" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="a" class="name">La </p></button><span></span></li>
-									<li ><button class="anchor" name="6" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="h" class="name">Si </p></button><span></span></li>
+									<li ><button class="anchor" name="1" type="button" value="E"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="e" class="name">Re</p></button><span></span></li>
+									<li ><button class="anchor" name="2" type="button" value="D"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="d" class="name">Me</p></button><span></span></li>
+									<li ><button class="anchor" name="3" type="button" value="F"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="f" class="name">Fa</p></button></li>
+									<li ><button class="anchor" name="4" type="button" value="G"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="g" class="name">Sol</p></button><span></span></li>
+									<li ><button class="anchor" name="5" type="button" value="A"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="a" class="name">La </p></button><span></span></li>
+									<li ><button class="anchor" name="6" type="button" value="B"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="h" class="name">Si </p></button><span></span></li>
 									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="c2" class="name">Do </p></button><span></span></li>									
 									<li><button class="anchor" name="0"  ></button></li>
 									
@@ -56,27 +58,6 @@
 								</ul>
 							</div>
 		</div>
-		<!--<form name="atsakymai1" >
-			<input class="answer" type="button" name="7" value="C"  onclick="atsakymas(this.name); perpiesti();">
-			<input class="answer" type="button" name="1" value="D"  onclick="atsakymas(this.name); perpiesti();">
-			<input class="answer" type="button" name="2" value="E"  onclick="atsakymas(this.name); perpiesti();"> 
-			<input class="answer" type="button" name="3" value="F"  onclick="atsakymas(this.name); perpiesti();">
-			<input class="answer" type="button" name="4" value="G"  onclick="atsakymas(this.name); perpiesti();">
-			<input class="answer" type="button" name="5" value="A"  onclick="atsakymas(this.name); perpiesti();">
-			<input class="answer" type="button" name="6" value="H"  onclick="atsakymas(this.name); perpiesti();">
-		</form>
-		<form name="atsakymai1" >
-			<button class="answer" type="button" name="7" value="C"  onclick="atsakymas(this.name); perpiesti();">do</button>
-			<button class="answer" type="button" name="1" value="D"  onclick="atsakymas(this.name); perpiesti();">re</button>
-			<button class="answer" type="button" name="2" value="E"  onclick="atsakymas(this.name); perpiesti();">mi</button>
-			<button class="answer" type="button" name="3" value="F"  onclick="atsakymas(this.name); perpiesti();">fa</button>
-			<button class="answer" type="button" name="4" value="G"  onclick="atsakymas(this.name); perpiesti();">sol</button>
-			<button class="answer" type="button" name="5" value="A"  onclick="atsakymas(this.name); perpiesti();">la</button>
-			<button class="answer" type="button" name="6" value="H"  onclick="atsakymas(this.name); perpiesti();">si</button>
-		</form>-->
-		<!--<footer class="page-footer">		
-			<p></p>
-		</footer>-->
 	</div><!--page-->
 <script type="text/javascript">
 var canvas = document.getElementById('canvas'),
@@ -160,12 +141,6 @@ default:
 }
 }
 function atsakymas(reiksme){
-//playAudio("4.mp3");
-//var clickSound = new Audio("1.wav");
-	//clickSound.play();
-	//playAudio("4.mp3");
-	//playAudioA("4.mp3");
-	//playAudioAA("4.mp3");
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
 		points+=1;
@@ -179,39 +154,30 @@ var temp = parseInt(reiksme)+7;
 	//	y.innerHTML=points;
 		
 }
+
+function perpiesti(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	drawStaff('black', 10, 10);
+	drawNote();
+	context.font = "bold 48px sans-serif";
+	context.fillText("Taškai:", 450, 300);
+	context.fillText(points, 630, 300);
+	var img = new Image();
+	img.onload = function() { context.drawImage(img, 0, -10);}img.src = "key.png";
+}
+//playAudio("4.mp3");
+//var clickSound = new Audio("1.wav");
+	//clickSound.play();
 function playAudioAA(src) { 
-
-src = '/android_asset/www/'+src; 
-var media = new Media(src, success, error_error); 
-
-media.play(); 
-
+	src = '/android_asset/www/'+src; 
+	var media = new Media(src, success, error_error); 
+	media.play(); 
 } 
 function playAudioA(src) { 
-
-src = '/assets/www/'+src; 
-var media = new Media(src, success, error_error); 
-
-media.play(); 
-
+	src = '/assets/www/'+src; 
+	var media = new Media(src, success, error_error); 
+	media.play(); 
 } 
-function perpiesti(){
-context.clearRect(0, 0, canvas.width, canvas.height);
-drawStaff('black', 10, 10);
-drawNote();
-//drawShape();
-context.font = "bold 48px sans-serif";
-context.fillText("Taškai:", 450, 300);
-context.fillText(points, 630, 300);
-
-var img = new Image();
-img.onload = function() {
-    context.drawImage(img, 0, -10);
-}
-  img.src = "key.png"
-
-
-}
  function playAudio(src) {
             if (device.platform == 'Android') {
                 src = '/android_asset/www/' + src;
@@ -260,8 +226,8 @@ img.onload = function() {
  }
  }
 
- function rodytiMeniu(ar){
- if(ar){document.getElementById('meniu2').style.display = 'block';}else{document.getElementById('meniu2').style.display = 'none';}
+ function rodytiMeniu(arRodyti){
+ if(arRodyti){document.getElementById('meniu2').style.display = 'block';}else{document.getElementById('meniu2').style.display = 'none';}
  
 }		
 </script>

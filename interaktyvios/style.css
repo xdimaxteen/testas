@@ -419,7 +419,7 @@ ul#piano li li a:hover {
 /**************************************************/
 @media all and (max-width: 481px) and (min-width: 1px) {
 .content{width:160px;}
-.mid{min-height:180px;}
+.mid{min-height:220px;} /*180px*/
 ul#piano {
   height:80px;
   width:300px;
@@ -465,15 +465,16 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 }
 .logo{
 	text-align:right;
+	padding:0;
 	font-size:1.1em;
-	margin:0px;
-	margin-top:20px;
+	margin-top:33px;
+	margin-right:3px;
 	text-transform:uppercase;
 	/*line-height:1em;*/
 }
 nav{height:70px;}
-.meniu {padding:5px; margin:3px;  margin-top:30px;}
-#meniu2{display:none; position:absolute;  padding:5px; margin:3px; background:#882178; width:100px; padding:10px; }
+.meniu {padding:3px; margin:3px;  margin-top:30px;}
+#meniu2{display:none; position:absolute;  padding:5px; margin:3px; background:#882178; width:100px; padding:10px;  }
 .meniu li a{padding:4px;  margin-left:3px; font-size:0.9em; 	 }
 .meniu a{
 }
@@ -496,7 +497,7 @@ nav{height:70px;}
 .meniu > li:first-child{display:block;}
 .meniu > li:first-child:hover*/
 
-canvas {width:292px;height:175px; background:none;  outline:purple 1px solid; margin:2px; }
+canvas {width:292px;height:175px; background:none;  outline:purple 1px solid; margin:2px; margin-top:20px;}
 .key{height:175px; margin-left:1px; padding:0;}
 #taskai{width:290px; margin:5px; text-align:center; font-size:1.5em;}
 .name{	 font-size:14px; top:25px; left:-3px; padding:0; margin:0;}
