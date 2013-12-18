@@ -170,7 +170,7 @@ function perpiesti(){
 	//clickSound.play();
 function playAudioAA(src) { 
 	src = '/android_asset/www/'+src; 
-	var media = new Media(src, success, error_error); 
+	var media = new Media(src); 
 	media.play(); 
 } 
 function playAudioA(src) { 
@@ -183,7 +183,7 @@ function playAudioA(src) {
                 src = '/android_asset/www/' + src;
             }
 			 src = '/android_asset/www/' + src;
-            var media = new Media(src, success, error_error);
+            var media = new Media(src);
  
             media.play();
         }
