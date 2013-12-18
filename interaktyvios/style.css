@@ -472,9 +472,26 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 	/*line-height:1em;*/
 }
 nav{height:70px;}
-.meniu {padding:0px; margin:0px;  margin-top:30px;}
-.meniu li a{padding:5px;  margin-left:5px;}
-.meniu li{  }
+.meniu {padding:5px; margin:3px;  margin-top:30px;}
+#meniu2{display:none; position:absolute;  padding:5px; margin:3px; background:#750062; width:100px; padding:10px; }
+.meniu li a{padding:4px;  margin-left:3px; font-size:0.9em; 	 }
+.meniu a{
+}
+.meniu li { 
+
+	
+}
+#meniu2 li a{background:none;color:white; border-bottom: solid 1px white;
+	display:block;}
+#meniu2 li a:focus{background:#D962C7;}
+
+/*.meniu a:hover{ 
+	background:#FFF; 
+	color:#750062;
+}*/
+.meniu a:active{
+	color:#D962C7;
+}
 /*.meniu li{display:none;}
 .meniu > li:first-child{display:block;}
 .meniu > li:first-child:hover*/

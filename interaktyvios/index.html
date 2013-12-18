@@ -14,9 +14,16 @@
 		<nav class="page-nav">
 			<h1 class="logo">Muzikos Pamoka </h1>
 			<ul class="meniu">
-				<!--<li><a>=</a></li>-->
-				<li> <a  href="./index.html">Pradėti</a> </li>
-				<li> <a  href="#" onclick="navigator.app.exitApp()">Exit</a> </li>
+				<li><a href="#" onclick="rodytiMeniu(true)">Meniu</a></li>
+				
+				<ul id="meniu2" >
+					<li> <a  href="./index.html" onclick="">Pradėti</a> </li>
+					<li> <a  href="#" onclick="keistiLygi(2)">Lygis 1</a> </li>
+					<li> <a  href="#" onclick="keistiLygi(1)">Lygis 2</a> </li>
+					<li> <a  href="#" onclick="keistiLygi(1)">Išeiti</a> </li>
+					<li> <a  href="#" onclick="rodytiMeniu(false)">Uzdaryti</a> </li>
+				</ul>
+				<li> <a  href="#" onclick="navigator.app.exitApp()">Exit</a> </li> 
 			</ul>
 		</nav>
 		
@@ -35,14 +42,14 @@
 									<!--<li><div class="anchor"></div></li>
 									<li><div class="anchor"></div><span></span></li>-->
 									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
-									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p class="name">Do</p></button></li>
-									<li ><button class="anchor" name="1" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Re</p></button><span></span></li>
-									<li ><button class="anchor" name="2" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Me</p></button><span></span></li>
-									<li ><button class="anchor" name="3" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p class="name">Fa</p></button></li>
-									<li ><button class="anchor" name="4" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p class="name">Sol</p></button><span></span></li>
-									<li ><button class="anchor" name="5" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">La </p></button><span></span></li>
-									<li ><button class="anchor" name="6" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Si </p></button><span></span></li>
-									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Do </p></button><span></span></li>									
+									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="c" class="name">Do</p></button></li>
+									<li ><button class="anchor" name="1" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="e" class="name">Re</p></button><span></span></li>
+									<li ><button class="anchor" name="2" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="d" class="name">Me</p></button><span></span></li>
+									<li ><button class="anchor" name="3" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="f" class="name">Fa</p></button></li>
+									<li ><button class="anchor" name="4" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p id="g" class="name">Sol</p></button><span></span></li>
+									<li ><button class="anchor" name="5" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="a" class="name">La </p></button><span></span></li>
+									<li ><button class="anchor" name="6" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="h" class="name">Si </p></button><span></span></li>
+									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p id="c2" class="name">Do </p></button><span></span></li>									
 									<li><button class="anchor" name="0"  ></button></li>
 									
 
@@ -214,8 +221,49 @@ img.onload = function() {
  
             media.play();
         }
- 		
-			
+ function keistiLygi(lygis){
+ if(lygis == 1){
+ var y=document.getElementById("c");
+ y.innerHTML="C";
+  var y=document.getElementById("d");
+ y.innerHTML="D";
+  var y=document.getElementById("e");
+ y.innerHTML="E";
+  var y=document.getElementById("f");
+ y.innerHTML="F"; 
+ var y=document.getElementById("g");
+ y.innerHTML="G";
+  var y=document.getElementById("a");
+ y.innerHTML="A";
+   var y=document.getElementById("h");
+ y.innerHTML="H";
+  var y=document.getElementById("c2");
+ y.innerHTML="C";
+ }
+  if(lygis == 2){
+ var y=document.getElementById("c");
+ y.innerHTML="Do";
+  var y=document.getElementById("d");
+ y.innerHTML="Re";
+  var y=document.getElementById("e");
+ y.innerHTML="Me";
+  var y=document.getElementById("f");
+ y.innerHTML="Fa"; 
+ var y=document.getElementById("g");
+ y.innerHTML="Sol";
+  var y=document.getElementById("a");
+ y.innerHTML="La";
+   var y=document.getElementById("h");
+ y.innerHTML="Si";
+  var y=document.getElementById("c2");
+ y.innerHTML="Do";
+ }
+ }
+
+ function rodytiMeniu(ar){
+ if(ar){document.getElementById('meniu2').style.display = 'block';}else{document.getElementById('meniu2').style.display = 'none';}
+ 
+}		
 </script>
 </body>
 </html>
