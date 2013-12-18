@@ -209,7 +209,7 @@ img.onload = function() {
             if (device.platform == 'Android') {
                 src = '/android_asset/www/' + src;
             }
- 
+			 src = '/android_asset/www/' + src;
             var media = new Media(src, success, error_error);
  
             media.play();
