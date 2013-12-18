@@ -10,8 +10,8 @@
 </style>
 </head>
 <body onload="perpiesti();">
-	<div class="page clearfix">
-		<nav class="page-nav">
+	<nav class="page-nav">
+		<div class="nav-inside">
 			<h1 class="logo">Muzikos Pamoka </h1>
 			<ul class="meniu">
 				<li><a href="#" onclick="rodytiMeniu(true)">Meniu</a></li>
@@ -22,12 +22,15 @@
 					<li> <a  href="#" onclick="keistiLygi(1)">Lygis 2</a> </li>
 					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li>
 					<li> <a  href="./apie.html" onclick="rodytiMeniu(false)">Apie</a> </li>
-					<<li> <a  href="#" onclick="rodytiMeniu(false)">Uždaryti</a> </li>
+					<li> <a  href="#" onclick="rodytiMeniu(false)">Uždaryti</a> </li>
 					
 				</ul>
 				<!--<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li> -->
 			</ul>
+		</div>	
 		</nav>
+	<div class="page clearfix">
+		
 		
 		<div class="mid">
 			<div class ="content-wrapper clearfix">
@@ -39,6 +42,7 @@
 		</div>
 		
 		<div class="bot clearfix">
+	
 							<div id="p-wrapper">
 								<ul class="piano-ul" id="piano">
 									<!--<li><div class="anchor"></div></li>

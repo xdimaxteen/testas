@@ -53,7 +53,7 @@ list-style:circle;
 	/*background-color:#FFF; */
 	/*border-radius:10px; */
 	padding:1px; 
-	border:solid #882178  1px;
+	
 	/*box-shadow: 5px 5px 50px rgba(0,0,0,0.4); */
 	min-height:100%;
 	margin:auto ;
@@ -103,7 +103,9 @@ nav{
 	padding:1px; 
 	border: 1px solid #882178; 
 	background-color:#882178; 
+	width:100%;
 	}
+	.nav-inside{width:950px;margin:auto;}
 /*forma*/
 form{
 	padding:10px;
@@ -419,6 +421,8 @@ ul#piano li li a:hover {
 /**************************************************/
 @media all and (max-width: 481px) and (min-width: 1px) {
 .content{width:160px;}
+
+.nav-inside{width:290px;margin:auto;}
 .mid{min-height:220px;} /*180px*/
 ul#piano {
   height:80px;
