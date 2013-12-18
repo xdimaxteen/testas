@@ -473,7 +473,7 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 }
 nav{height:70px;}
 .meniu {padding:0px; margin:0px;  margin-top:30px;}
-.meniu li a{padding:3px;  margin-left:5px;}
+.meniu li a{padding:5px;  margin-left:5px;}
 .meniu li{  }
 /*.meniu li{display:none;}
 .meniu > li:first-child{display:block;}
@@ -511,7 +511,7 @@ ul#piano li a, ul#piano li button.anchor {
   width:50px;
 }
 ul#piano li a:active,ul#piano li button.anchor:active {
-  height:107px;
+  height:108px;
 }
 /*black*/
 ul#piano li span {
@@ -526,11 +526,11 @@ ul#piano li span:active {
 }*/
 ul#piano li a:active:after,ul#piano li button.anchor:active:after {
   content:"";
-  border-width:116px 2px 0px;
+  border-width:108px 2px 0px;
 }
 ul#piano li a:active:before,ul#piano li button.anchor:active:before {
   content:"";
-  border-width:116px 2px 0px;
+  border-width:108px 2px 0px;
 }
 /*page*/
 .page{ 
