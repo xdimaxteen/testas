@@ -35,13 +35,13 @@
 									<!--<li><div class="anchor"></div></li>
 									<li><div class="anchor"></div><span></span></li>-->
 									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
-									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  "><p class="name">Do</p></button></li>
-									<li ><button class="anchor" name="1" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  "><p class="name">Re</p></button><span></span></li>
-									<li ><button class="anchor" name="2" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  "><p class="name">Me</p></button><span></span></li>
-									<li ><button class="anchor" name="3" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  "><p class="name">Fa</p></button></li>
-									<li ><button class="anchor" name="4" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  "><p class="name">Sol</p></button><span></span></li>
-									<li ><button class="anchor" name="5" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  "><p class="name">La </p></button><span></span></li>
-									<li ><button class="anchor" name="6" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  "><p class="name">Si </p></button><span></span></li>
+									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p class="name">Do</p></button></li>
+									<li ><button class="anchor" name="1" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Re</p></button><span></span></li>
+									<li ><button class="anchor" name="2" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Me</p></button><span></span></li>
+									<li ><button class="anchor" name="3" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p class="name">Fa</p></button></li>
+									<li ><button class="anchor" name="4" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('4.mp3');"><p class="name">Sol</p></button><span></span></li>
+									<li ><button class="anchor" name="5" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">La </p></button><span></span></li>
+									<li ><button class="anchor" name="6" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Si </p></button><span></span></li>
 									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('4.mp3'); "><p class="name">Do </p></button><span></span></li>									
 									<li><button class="anchor" name="0"  ></button></li>
 									
@@ -158,7 +158,7 @@ function atsakymas(reiksme){
 	//clickSound.play();
 	//playAudio("4.mp3");
 	//playAudioA("4.mp3");
-	playAudioAA("4.mp3");
+	//playAudioAA("4.mp3");
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
 		points+=1;
@@ -205,21 +205,16 @@ img.onload = function() {
 
 
 }
-function playAudio(url) {
-    // Play the audio file at url
-    var my_media = new Media(url,
-        // success callback
-        function() {
-            console.log("playAudio():Audio Success");
-        },
-        // error callback
-        function(err) {
-            console.log("playAudio():Audio Error: "+err);
-    });
-
-    // Play audio
-    my_media.play();
-}			
+ function playAudio(src) {
+            if (device.platform == 'Android') {
+                src = '/android_asset/www/' + src;
+            }
+ 
+            var media = new Media(src, success, error_error);
+ 
+            media.play();
+        }
+ 		
 			
 </script>
 </body>
