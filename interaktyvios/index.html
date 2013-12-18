@@ -3,7 +3,7 @@
 <head>
 <title>Muzikos pamoka - natos</title>
 <meta charset="utf-8" />
-<script src="phonegap.js"></script>
+<!--<script src="phonegap.js"></script>-->
 <meta name="keywords" content="">
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 <style type="text/css">
@@ -22,10 +22,10 @@
 					<li> <a  href="#" onclick="keistiLygi(1)">Lygis 2</a> </li>
 					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li>
 					<li> <a  href="./apie.html" onclick="rodytiMeniu(false)">Apie</a> </li>
-					<li> <a  href="#" onclick="rodytiMeniu(false)">Uždaryti</a> </li>
+					<<li> <a  href="#" onclick="rodytiMeniu(false)">Uždaryti</a> </li>
 					
 				</ul>
-				<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li> 
+				<!--<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li> -->
 			</ul>
 		</nav>
 		
@@ -75,7 +75,7 @@ var canvas = document.getElementById('canvas'),
 var	points = 0;
 var note =0;
 function drawStaff(color, stepx, stepy) {
-	context.save()
+	context.save();
 	context.strokeStyle = color;
 	context.lineWidth = 2;
 	for (var i = 80; i <= 260; i += 40) {
@@ -163,7 +163,9 @@ function perpiesti(){
 	context.fillText("Taškai:", 450, 300);
 	context.fillText(points, 630, 300);
 	var img = new Image();
-	img.onload = function() { context.drawImage(img, 0, -10);}img.src = "key.png";
+	img.onload = function() {
+	context.drawImage(img, 0, -10)}
+	img.src = "key.png";
 }
 //playAudio("4.mp3");
 //var clickSound = new Audio("1.wav");
@@ -179,10 +181,11 @@ function playAudioA(src) {
 	media.play(); 
 } 
  function playAudio(src) {
-            if (device.platform == 'Android') {
-                src = '/android_asset/www/' + src;
+            if (device.platform == 'Android') {;
+             //   src = '/android_asset/www/' + src;
             }
-			 src = '/android_asset/www/' + src;
+			// src = '/android_asset/www/' + src;
+			 
             var media = new Media(src);
  
             media.play();
@@ -206,7 +209,7 @@ function playAudioA(src) {
   var y=document.getElementById("c2");
  y.innerHTML="C";
  }
-  if(lygis == 2){
+ if(lygis == 2){
  var y=document.getElementById("c");
  y.innerHTML="Do";
   var y=document.getElementById("d");
