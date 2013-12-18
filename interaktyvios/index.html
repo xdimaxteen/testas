@@ -3,7 +3,7 @@
 <head>
 <title>Muzikos pamoka - natos</title>
 <meta charset="utf-8" />
-
+<script src="phonegap.js"></script>
 <meta name="keywords" content="">
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 <style type="text/css">
@@ -16,7 +16,7 @@
 			<ul class="meniu">
 				<!--<li><a>=</a></li>-->
 				<li> <a  href="./index.html">Pradėti</a> </li>
-				<li> <a  href="#" >Pradėti</a> </li>
+				<li> <a  href="#" onclick="navigator.app.exitApp()">Exit</a> </li>
 			</ul>
 		</nav>
 		
@@ -153,11 +153,12 @@ default:
 }
 }
 function atsakymas(reiksme){
-playAudio("4.mp3");
+//playAudio("4.mp3");
 //var clickSound = new Audio("1.wav");
 	//clickSound.play();
 	//playAudio("4.mp3");
 	//playAudioA("4.mp3");
+	playAudioAA("4.mp3");
 var temp = parseInt(reiksme)+7;
 	if(reiksme == note || note == temp ){
 		points+=1;
@@ -171,7 +172,7 @@ var temp = parseInt(reiksme)+7;
 	//	y.innerHTML=points;
 		
 }
-function playAudioA(src) { 
+function playAudioAA(src) { 
 
 src = '/android_asset/www/'+src; 
 var media = new Media(src, success, error_error); 
@@ -179,7 +180,7 @@ var media = new Media(src, success, error_error);
 media.play(); 
 
 } 
-function playAudio(src) { 
+function playAudioA(src) { 
 
 src = '/assets/www/'+src; 
 var media = new Media(src, success, error_error); 
