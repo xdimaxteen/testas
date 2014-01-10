@@ -23,7 +23,7 @@
     -->
     <preference name="permissions"                value="none"/>
 
-	<plugin name="Media" value="org.apache.cordova.AudioHandler" />
+	
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
 	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -42,10 +42,11 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
     <!-- Plugins -->
-
+	<gap:plugin name="Media" value="org.apache.cordova.AudioHandler" />
     <!-- Core plugins -->
-	  <gap:plugin name="org.apache.cordova.media" />
-	      <gap:plugin name="org.apache.cordova.device" />
+	 <gap:plugin name="org.apache.cordova.media" />
+	  <gap:plugin name="org.apache.cordova.AudioHandler" />
+	<gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.device-motion" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
 	<gap:plugin name="org.apache.cordova.dialogs" />
