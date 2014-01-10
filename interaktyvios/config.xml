@@ -42,7 +42,7 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
     <!-- Plugins -->
-	<gap:plugin name="Media" value="org.apache.cordova.AudioHandler" />
+	
     <!-- Core plugins -->
 	 <gap:plugin name="org.apache.cordova.media" />
 	  <gap:plugin name="org.apache.cordova.AudioHandler" />
