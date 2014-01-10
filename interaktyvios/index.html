@@ -166,13 +166,7 @@ function perpiesti(){
 	img.src = "key.png";
 
 }
- function playAudio(src) {
-            if (device.platform == 'Android') {;
-                src = '/android_asset/www/' + src;
-            } 
-            var media = new Media(src);
-            media.play();
-        }
+
  function keistiLygi(lygis){
   points = 0;
   perpiesti();
@@ -239,7 +233,36 @@ function perpiesti(){
  if(arRodyti){document.getElementById('meniu2').style.display = 'block';}else{document.getElementById('meniu2').style.display = 'none';}
  
 }		
+   function playAudio(src) {
+            if (my_media == null) {
+                // Create Media object from src
+                my_media = new Media(src, onSuccess, onError);
+            } // else play current audio
+            // Play audio
+            my_media.play();
 
+            // Update my_media position every second
+
+        }
+		
+		/*
+	 function playAudio(src) {
+            if (device.platform == 'Android') {;
+                src = '/android_asset/www/' + src;
+            } 
+            var media = new Media(src);
+            media.play();
+        }	*/
+	
+document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+            playAudio("/android_asset/www/audio/4.mp3");
+        }	
+		
+		
 </script>
 </body>
 </html>
