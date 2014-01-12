@@ -137,6 +137,7 @@ th{color:#770064; background:#D962C7}
 canvas {width:800px;height:350px; background:none;  outline:purple 1px solid; margin-left:75px; }
 #taskai {display:inline-block; background:#D962C7;  min-width:100px; border: 1px solid #750062; text-align:center; float: right;}
 .key{height:310px;}
+.clef{position:absolute;left:280px;top:79px;}
 .btn {
 	color:#750062;
 	list-style:none;
@@ -262,7 +263,7 @@ ul#piano li li {
 /**************************************************/
 @media all and (max-width: 481px) and (min-width: 1px) {
 .content{width:160px;}
-
+.clef{position:absolute;left:20px;top:154px; height:160px;}
 .nav-inside{width:290px;margin:auto;}
 .mid{min-height:220px;} /*180px*/
 ul#piano {
@@ -337,6 +338,7 @@ canvas {width:292px;height:175px; background:none;  outline:purple 1px solid; ma
 form{width:auto;}
 }
 @media all and (max-width: 801px) and (min-width: 481px) {
+.clef{position:absolute;left:60px;top:-0px; height:160px;}
 .content{width:800px;}
 .mid{min-height:180px;}
 ul#piano {
