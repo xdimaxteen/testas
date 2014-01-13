@@ -3,7 +3,9 @@
 <head>
 <title>Muzikos pamoka - natos</title>
 <meta charset="utf-8" />
-<!--<script src="phonegap.js"></script>-->
+<script src="phonegap.js"></script>
+<script src="JSMIDIparser.js"></script>
+
 <meta name="keywords" content="">
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 <style type="text/css">
@@ -14,19 +16,29 @@
 		<div class="nav-inside">
 			<h1 class="logo">Muzikos Pamoka </h1>
 			<ul class="meniu">
-				<li><a href="#" onclick="rodytiMeniu(true)" id="meniu-start">Meniu</a></li>
+				<li><a href="#" onclick="rodytiMeniu2(true);rodytiMeniu3(false);" id="meniu-start">Meniu</a></li>
 				
 				<ul id="meniu2" >
 					<li> <a  href="./index.html" onclick="">Pradėti</a> </li>
-					<li> <a  href="#" onclick="keistiLygi(2)">Lygis 1</a> </li>
-					<li> <a  href="#" onclick="keistiLygi(1)">Lygis 2</a> </li>
-					<li> <a  href="#" onclick="keistiLygi(3)">Lygis 3</a> </li>
+					<li> <a  href="#" onclick="keistiLygi(2); rodytiMeniu2(false);">Lygis 1</a> </li>
+					<li> <a  href="#" onclick="keistiLygi(1); rodytiMeniu2(false);">Lygis 2</a> </li>
+					<li> <a  href="#" onclick="keistiLygi(3); rodytiMeniu2(false);">Lygis 3</a> </li>
 					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li>
-					<li> <a  href="./apie.html" onclick="rodytiMeniu(false)">Apie</a> </li>
-					<li> <a  href="#" onclick="rodytiMeniu(false)">Uždaryti</a> </li>
+					<li> <a  href="./apie.html" onclick="rodytiMeniu2(false)">Apie</a> </li>
+					<li> <a  href="#" onclick="rodytiMeniu2(false)">Uždaryti Meniu</a> </li>
 					
 				</ul>
-				<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li>
+				<li> <a href="#" onclick="rodytiMeniu2(false);rodytiMeniu3(true);">Pasirinkti</a> </li>
+					<ul id="meniu3" >
+						<li> <input class="custom-file-input"  type="file" id="filereader" onclick="rodytiMeniu3(false);" />  </li>
+						<!--
+						<li> <a  href="#" onclick="rodytiMeniu3(false);">Twinkle Twinkle</a> </li>
+						<li> <a  href="#" onclick="rodytiMeniu3(false);">Du Gaideliai</a> </li>
+						-->
+						<li> <a  href="#" onclick="rodytiMeniu3(false);pasirinktiDaina(false);">Nėra</a> </li>
+						<li> <a  href="#" onclick="rodytiMeniu3(false);">Uždaryti Meniu</a> </li> 
+					
+					</ul>
 			</ul>
 		</div>	
 		</nav>
@@ -35,6 +47,7 @@
 		
 		<div class="mid">
 			<div class ="content-wrapper clearfix">
+					<img class="clef" src="key.png"></img>
 					<canvas	id="canvas" width="800" height="350"></canvas>
 			</div><!--content wrapper-->
 		</div>
@@ -44,7 +57,7 @@
 							<div id="p-wrapper">
 								<ul class="piano-ul" id="piano">
 									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
-									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('do1.mid');"><p id="c" class="name">Do</p></button></li>
+									<li ><button class="anchor" name="0" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('do1.mid');"><p id="c" class="name">Do</p></button></li>
 									<li ><button class="anchor" name="1" type="button" value="E"  onclick="atsakymas(this.name); perpiesti(); playAudio('re.mid'); "><p id="e" class="name">Re</p></button><span></span></li>
 									<li ><button class="anchor" name="2" type="button" value="D"  onclick="atsakymas(this.name); perpiesti(); playAudio('mi.mid'); "><p id="d" class="name">Me</p></button><span></span></li>
 									<li ><button class="anchor" name="3" type="button" value="F"  onclick="atsakymas(this.name); perpiesti();  playAudio('fa.mid');"><p id="f" class="name">Fa</p></button></li>
@@ -58,6 +71,7 @@
 								</ul>
 							</div>
 		</div>
+		
 	</div><!--page-->
 <script type="text/javascript">
 var canvas = document.getElementById('canvas'),
@@ -74,6 +88,13 @@ var canvas = document.getElementById('canvas'),
     ];
 var	points = 0;
 var note =0;
+var natos1 = new Array();
+var interacija = 0;
+var dainosIlgis =0;
+var arPasirinktaDaina = false;
+function pasirinktiDaina(arPasirinkta){arPasirinktaDaina = arPasirinkta;}
+function bageseiDaina(){arPasirinktaDaina = false;}
+
 function drawStaff(color, stepx, stepy) {
 	context.save();
 	context.strokeStyle = color;
@@ -103,70 +124,141 @@ function drawOval(centerY, centerX, radius){
 	context.restore();
 }
 function drawNote(){
-note = Math.floor((Math.random()*10)+1);
+if(iteracija <= dainosIlgis){
+note = natos1[iteracija];
+iteracija ++ ;
 switch(note){
-case 1:
+case 60: //do
+    drawOval(280,350,15);
+	context.save();context.lineWidth = 2;
+	context.beginPath();
+	context.moveTo(300, 280);
+	context.lineTo(390, 280);
+	context.stroke();
+   context.restore();
+  break;
+case 62: //re
     drawOval(260,350,15);
   break;
-case 2:
+case 64: //me
     drawOval(240,350,15);	
   break;
-case 3:
+case 65: //fa 
     drawOval(220,350,15);
   break;
-case 4:
+case 67: //sol
     drawOval(200,350,15);
   break;
-case 5:
+case 69: //la
     drawOval(180,350,15);
   break;
-case 6:
+case 71://si
     drawOval(160,350,15); 
   break;  
-case 7:
+case 72: //do
     drawOval(140,350,15); //context.fillText("1", 430, 200);
   break; 
-case 8:
+case 74: 
     drawOval(120,350,15);
   break; 
-case 9:
+case 76:
     drawOval(100,350,15);
 	 break; 
-case 10:
+case 77:
     drawOval(80,350,15);
   break;  
 default:
 	drawOval(80,350,15);
   break;  
 }
+}else{ arPasirinktaDaina= false; perpiesti(); }
 }
-function atsakymas(reiksme){
-var temp = parseInt(reiksme)+7;
-	if(reiksme == note || note == temp ){
-		points+=1;
+function drawRandomNote(){
+
+note = Math.floor((Math.random()*10));
+switch(note){
+case 0: //do
+    drawOval(280,350,15);
+	context.save();context.lineWidth = 2;
+	context.beginPath();
+	context.moveTo(300, 280);
+	context.lineTo(390, 280);
+	context.stroke();
+   context.restore();
+  break;
+case 1:  drawOval(260,350,15);  break;//re
+case 2:  drawOval(240,350,15);	  break; //me
+case 3:  drawOval(220,350,15);  break; //fa 
+case 4:  drawOval(200,350,15);  break;//sol
+case 5:  drawOval(180,350,15);  break;//la
+case 6:  drawOval(160,350,15);   break;  //si
+case 7:  drawOval(140,350,15); //context.fillText("1", 430, 200);
+  break; //do
+case 8:  drawOval(120,350,15);  break; 
+case 9: drawOval(100,350,15);	 break; 
+case 10: drawOval(80,350,15);  break;  
+default:drawOval(80,350,15);  break;  
+}
+}
+function atsakymas(reiksme1){
+	var reiksme = parseInt(reiksme1);
+	if(!arPasirinktaDaina){
+		var temp = parseInt(reiksme)+7;
+		if(reiksme == note || note == temp  ){	points+=1;	}
+		else{points-=1;	}	
+	}else{
+		console.log(reiksme);
+		console.log(note);
+		switch(reiksme){
+			case 0: reiksme = 60;	break;  
+			case 1:	reiksme = 62;	break; 
+			case 2:	reiksme = 64;	break; 
+			case 3:	reiksme = 65;	break; 
+			case 4:	reiksme = 67;	break; 
+			case 5:	reiksme = 69;	break; 
+			case 6:	reiksme = 71;	break; 
+			case 7:	reiksme = 72;	break; 
+			case 8:	reiksme = 74;	break; 
+			case 9: reiksme = 76;	break; 
+			case 10:reiksme = 77;  break;  
+			default:reiksme = 77;  break;  
+		}		
+		if(reiksme == note ){points+=1;}	
+		else{	points-=1;}	
+		
 	}
-	else{
-		points-=1;
-	}	
 }
 function perpiesti(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	drawStaff('black', 10, 10);
-	drawNote();
-		
+	if(!arPasirinktaDaina){
+	drawRandomNote();	
 	context.font = "bold  48px sans-serif ";
 	context.fillStyle = '#750062';
-	context.fillText("TAŠKAI:", 450, 300);
-	context.fillText(points, 650, 300);
+	context.fillText("TAŠKAI:", 500, 300);
+	context.fillText(points, 700, 300);
 	context.fillStyle = 'black';
 	context.fillRect(750,80,7,160); 
     context.fillRect(776,80,28,160); 
-	var img = new Image();
-	img.onload = function() {
-	context.drawImage(img, 0, -10)}
-	img.src = "key.png";
-
-
+	console.log("random");
+	}
+	if(arPasirinktaDaina){
+				
+		drawNote();	
+		context.font = "bold  48px sans-serif ";
+		context.fillStyle = '#750062';
+		context.fillText("TAŠKAI:", 500, 300);
+		context.fillText(points, 700, 300);
+		context.fillStyle = 'black';
+		context.fillRect(750,80,7,160); 
+		context.fillRect(776,80,28,160); 
+		console.log("eina daina");
+	}
+	JSMIDIParser.IO('filereader', MyCallback);	
+	//var img = new Image();
+	//img.onload = function() {
+	//context.drawImage(img, 0, -10)}
+	//img.src = "key.png";
 }
 
  function keistiLygi(lygis){
@@ -231,10 +323,12 @@ function perpiesti(){
  }
  }
 
- function rodytiMeniu(arRodyti){
+ function rodytiMeniu2(arRodyti){
  if(arRodyti){document.getElementById('meniu2').style.display = 'block';}else{document.getElementById('meniu2').style.display = 'none';}
 }		
-
+ function rodytiMeniu3(arRodyti){
+ if(arRodyti){document.getElementById('meniu3').style.display = 'block';}else{document.getElementById('meniu3').style.display = 'none';}
+}		
 
 function playAudio(src) {
 var path= "/android_asset/www/"+src;
@@ -244,7 +338,44 @@ myMedia = new Media(path);
  myMedia.play(); 
  //myMedia.release();
 }
-	
+	function MyCallback(obj){
+			console.log("%o", obj);
+			//alert("Done! check your console Log for output dump");
+			var natos = new Array(); 
+			
+			var j =0; var jj=0;
+			/*
+			if(obj.track[1].event[12].data="Piano") {
+			for(var i=12; i < obj.track[1].event.length-1; i++){
+				if( (obj.track[1].event[i].data[1]) == 0){			
+					natos[j] = obj.track[1].event[i].data[0];
+					j++;
+				};
+			}//console.log(natos.toString());
+			}*/
+			
+			
+			for(var i=12; i < obj.track[1].event.length-1; i++){
+				if( (obj.track[1].event[i].data[1]) == 0){
+					if(obj.track[1].event[i].data[0]>=60 && obj.track[1].event[i].data[0] <=72){				
+					natos1[jj] = obj.track[1].event[i].data[0];
+					jj++;}else{ break;alert("Netinkamas midi failas");}
+				};
+			}
+			console.log(natos1.toString());
+			
+			pasirinktiDaina(true);
+			dainosIlgis = natos1.length;
+			console.log(natos1.length);
+			iteracija = 0;
+			perpiesti();
+		}
+
+		// JSMIDIParser
+		
+		
+		
+
 </script>
 </body>
 </html>

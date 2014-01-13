@@ -3,7 +3,7 @@ body{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
 	line-height:1.5em;
-	background-image:url('./photo/back.jpg');
+
 	margin:0px;
 }
 h1,h2,h3,h4,h5,h6{
@@ -59,7 +59,8 @@ list-style:circle;
 .content-wrapper{
 	display:block; 
 	border: solid black 0px; 
-	border-bottom:solid #750062 1px;}
+	border-bottom:solid #750062 1px;
+	position:absolute;}
 .clearfix:after { 
 	content: "."; 	
 	display: block; 	
@@ -107,6 +108,7 @@ label{
 	font-weight:bold; 
 	color:#2b2b2b; 
 } 
+/*
 input {background:#FFF; border: 1px solid #750062; text-align:center;}
 input:hover {background:#D936C0; 
 	color:#750062;}
@@ -115,7 +117,7 @@ input:focus,select:focus{
 }
 input:active{
 	color:#FFF;
-}
+}*/
 	/*lentele*/
 table, td, tr, th {border: 1px solid #770064; padding:0px; margin:0px;}
 th{color:#770064; background:#D962C7}
@@ -137,7 +139,7 @@ th{color:#770064; background:#D962C7}
 canvas {width:800px;height:350px; background:none;  outline:purple 1px solid; margin-left:75px; }
 #taskai {display:inline-block; background:#D962C7;  min-width:100px; border: 1px solid #750062; text-align:center; float: right;}
 .key{height:310px;}
-.clef{position:absolute;left:280px;top:79px;}
+
 .btn {
 	color:#750062;
 	list-style:none;
@@ -259,11 +261,40 @@ ul#piano li li {
 }
 .name{	color:#750062; font-size:20px; position:relative; top:80px; font-weight:bold;}
 .mid {height:156px; margin:2px;}
+.clef{position:absolute;left:80px;top:-10px;}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Rinktis MIDI failą';
+  width:100px;
+  white-space: nowrap;
+	color:white;
+	padding:1px;
+
+}
+/*input:focus{color:#D962C7; }
+.custom-file-input:focus::before {
+  border:none;
+    background:none;
+		color:white;
+}*/
+
+.custom-file-input{
+color:#882178;
+    background:#882178;
+font-size: 0.9em;
+text-transform: uppercase;
+font-weight: bold;
+  border: none;
+  border-bottom:1px solid white;
+}
 /*quaery*/
 /**************************************************/
 @media all and (max-width: 481px) and (min-width: 1px) {
 .content{width:160px;}
-.clef{position:absolute;left:20px;top:154px; height:160px;}
+.clef{position:absolute;left:10px;top:16px; height:175px;}
 .nav-inside{width:290px;margin:auto;}
 .mid{min-height:220px;} /*180px*/
 ul#piano {
@@ -314,11 +345,14 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 }
 nav{height:70px;}
 .meniu {padding:1px; margin:3px;  margin-top:30px;}
-#meniu2{display:none; position:absolute;  padding:2px; margin:3px; background:#882178; width:100px; padding:10px;  }
+#meniu2{z-index:10;display:none; position:absolute;  padding:2px; margin:3px; background:#882178; width:150px; padding:10px;  }
+#meniu3{z-index:10;display:none; position:absolute;  padding:2px; margin:3px; background:#882178; width:250px; padding:10px;  }
+
 .meniu li a{padding:3px;  margin-left:3px; font-size:0.9em; 	 }
-#meniu2 li a{background:none;color:white; border-bottom: solid 1px white;
-	display:block;}
+#meniu2 li a{background:none;color:white; border-bottom: solid 1px white; 	display:block;}
+#meniu3 li a{background:none;color:white; border-bottom: solid 1px white; 	display:block;}
 #meniu2 li a:focus{background:#D962C7;}
+#meniu3 li a:focus{background:#D962C7;}
 #meniu-start{padding:3px;}
 .meniu a:active{
 	color:#D962C7;
@@ -338,7 +372,7 @@ canvas {width:292px;height:175px; background:none;  outline:purple 1px solid; ma
 form{width:auto;}
 }
 @media all and (max-width: 801px) and (min-width: 481px) {
-.clef{position:absolute;left:60px;top:-0px; height:160px;}
+.clef{position:absolute;left:60px;top:-3px; height:160px;}
 .content{width:800px;}
 .mid{min-height:180px;}
 ul#piano {
