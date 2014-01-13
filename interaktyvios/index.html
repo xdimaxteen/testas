@@ -19,25 +19,27 @@
 				<li><a href="#" onclick="rodytiMeniu2(true);rodytiMeniu3(false);" id="meniu-start">Meniu</a></li>
 				
 				<ul id="meniu2" >
-					<li> <a  href="./index.html" onclick="">Pradėti</a> </li>
+					<li> <a  href="./index.html" onclick="">Pradėti iš naujo</a> </li>
+					<li> <input class="custom-file-input"  type="file" id="filereader" onclick="rodytiMeniu2(false);" />  </li>
+					<li> <a  href="#" onclick="pasirinktiDaina(false);rodytiMeniu2(false);">Generuoti atsitiktines natas</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(2); rodytiMeniu2(false);">Lygis 1</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(1); rodytiMeniu2(false);">Lygis 2</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(3); rodytiMeniu2(false);">Lygis 3</a> </li>
-					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti</a> </li>
-					<li> <a  href="./apie.html" onclick="rodytiMeniu2(false)">Apie</a> </li>
+					<!--<li> <a  href="./apie.html" onclick="rodytiMeniu2(false)">Apie</a> </li>-->
 					<li> <a  href="#" onclick="rodytiMeniu2(false)">Uždaryti Meniu</a> </li>
+					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti Aplikaciją</a> </li>
 					
 				</ul>
-				<li> <a href="#" onclick="rodytiMeniu2(false);rodytiMeniu3(true);">Pasirinkti</a> </li>
+				<!--<li> <a href="#" onclick="rodytiMeniu2(false);rodytiMeniu3(true);">Parinktys</a> </li>
 					<ul id="meniu3" >
-						<li> <input class="custom-file-input"  type="file" id="filereader" onclick="rodytiMeniu3(false);" />  </li>
-						<!--
+						
+						
 						<li> <a  href="#" onclick="rodytiMeniu3(false);">Twinkle Twinkle</a> </li>
 						<li> <a  href="#" onclick="rodytiMeniu3(false);">Du Gaideliai</a> </li>
-						-->
-						<li> <a  href="#" onclick="rodytiMeniu3(false);pasirinktiDaina(false);">Nėra</a> </li>
+						
+						
 						<li> <a  href="#" onclick="rodytiMeniu3(false);">Uždaryti Meniu</a> </li> 
-					
+					-->
 					</ul>
 			</ul>
 		</div>	
@@ -359,7 +361,7 @@ myMedia = new Media(path);
 				if( (obj.track[1].event[i].data[1]) == 0){
 					if(obj.track[1].event[i].data[0]>=60 && obj.track[1].event[i].data[0] <=72){				
 					natos1[jj] = obj.track[1].event[i].data[0];
-					jj++;}else{ break;alert("Netinkamas midi failas");}
+					jj++;}else{ break; throw("Netinkamas midi failas");}
 				};
 			}
 			console.log(natos1.toString());

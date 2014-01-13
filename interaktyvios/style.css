@@ -268,10 +268,11 @@ ul#piano li li {
 }
 .custom-file-input::before {
   content: 'Rinktis MIDI failą';
-  width:100px;
+  width:200px;
   white-space: nowrap;
 	color:white;
 	padding:1px;
+	margin-left:2px;
 
 }
 /*input:focus{color:#D962C7; }
@@ -345,7 +346,7 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 }
 nav{height:70px;}
 .meniu {padding:1px; margin:3px;  margin-top:30px;}
-#meniu2{z-index:10;display:none; position:absolute;  padding:2px; margin:3px; background:#882178; width:150px; padding:10px;  }
+#meniu2{z-index:100;display:none; position:absolute;  padding:2px; margin:3px; background:#882178; width:250px; padding:10px;  }
 #meniu3{z-index:10;display:none; position:absolute;  padding:2px; margin:3px; background:#882178; width:250px; padding:10px;  }
 
 .meniu li a{padding:3px;  margin-left:3px; font-size:0.9em; 	 }
@@ -353,7 +354,7 @@ nav{height:70px;}
 #meniu3 li a{background:none;color:white; border-bottom: solid 1px white; 	display:block;}
 #meniu2 li a:focus{background:#D962C7;}
 #meniu3 li a:focus{background:#D962C7;}
-#meniu-start{padding:3px;}
+#meniu-start{padding:5px;}
 .meniu a:active{
 	color:#D962C7;
 }
