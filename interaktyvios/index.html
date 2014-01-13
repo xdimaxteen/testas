@@ -351,20 +351,20 @@ myMedia = new Media(path);
 				};
 			}//console.log(natos.toString());
 			}*/
+			pasirinktiDaina(true);
+			dainosIlgis = natos1.length;
+			iteracija = 0;
 			
 			
 			for(var i=12; i < obj.track[1].event.length-1; i++){
 				if( (obj.track[1].event[i].data[1]) == 0){
 					if(obj.track[1].event[i].data[0]>=60 && obj.track[1].event[i].data[0] <=72){				
 					natos1[jj] = obj.track[1].event[i].data[0];
-					jj++;}else{ break; throw("Netinkamas midi failas");}
+					jj++;}else{ throw("Netinkamas midi failas"); pasirinktiDaina(false);break; }
 				};
 			}
-			
-			pasirinktiDaina(true);
-			dainosIlgis = natos1.length;
-			iteracija = 0;
 			perpiesti();
+			
 		}
 
 		// JSMIDIParser
