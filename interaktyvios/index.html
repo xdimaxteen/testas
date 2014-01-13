@@ -209,8 +209,6 @@ function atsakymas(reiksme1){
 		if(reiksme == note || note == temp  ){	points+=1;	}
 		else{points-=1;	}	
 	}else{
-		console.log(reiksme);
-		console.log(note);
 		switch(reiksme){
 			case 0: reiksme = 60;	break;  
 			case 1:	reiksme = 62;	break; 
@@ -236,25 +234,23 @@ function perpiesti(){
 	if(!arPasirinktaDaina){
 	drawRandomNote();	
 	context.font = "bold  48px sans-serif ";
-	context.fillStyle = '#750062';
+	context.fillStyle = '#133783';
 	context.fillText("TAŠKAI:", 500, 300);
 	context.fillText(points, 700, 300);
 	context.fillStyle = 'black';
 	context.fillRect(750,80,7,160); 
     context.fillRect(776,80,28,160); 
-	console.log("random");
 	}
 	if(arPasirinktaDaina){
 				
 		drawNote();	
 		context.font = "bold  48px sans-serif ";
-		context.fillStyle = '#750062';
+		context.fillStyle = '#133783';
 		context.fillText("TAŠKAI:", 500, 300);
 		context.fillText(points, 700, 300);
 		context.fillStyle = 'black';
 		context.fillRect(750,80,7,160); 
 		context.fillRect(776,80,28,160); 
-		console.log("eina daina");
 	}
 	JSMIDIParser.IO('filereader', MyCallback);	
 	//var img = new Image();
@@ -341,7 +337,7 @@ myMedia = new Media(path);
  //myMedia.release();
 }
 	function MyCallback(obj){
-			console.log("%o", obj);
+			//console.log("%o", obj);
 			//alert("Done! check your console Log for output dump");
 			var natos = new Array(); 
 			
@@ -364,11 +360,9 @@ myMedia = new Media(path);
 					jj++;}else{ break; throw("Netinkamas midi failas");}
 				};
 			}
-			console.log(natos1.toString());
 			
 			pasirinktiDaina(true);
 			dainosIlgis = natos1.length;
-			console.log(natos1.length);
 			iteracija = 0;
 			perpiesti();
 		}
