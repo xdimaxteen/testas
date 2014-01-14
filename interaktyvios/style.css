@@ -294,7 +294,7 @@ font-weight: bold;
 /*quaery*/
 /**************************************************/
 @media all and (max-width: 481px) and (min-width: 1px) {
-.content{width:160px;}
+
 .clef{position:absolute;left:10px;top:16px; height:175px;}
 .nav-inside{width:290px;margin:auto;}
 .mid{min-height:220px;} /*180px*/
@@ -330,7 +330,7 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 }
 /*page*/
 .page{ 
-	width:300px;
+	width:290px;
 	}
 .sidebar{
 	margin-left:1em; 
@@ -358,7 +358,7 @@ nav{height:70px;}
 .meniu a:active{
 	color:#133783;
 }
-canvas {width:292px;height:175px; background:none;   margin:2px; margin-top:20px;}
+canvas {width:280px;height:175px; background:none;   margin:2px; margin-top:20px;}
 .key{height:175px; margin-left:1px; padding:0;}
 #taskai{width:290px; margin:5px; text-align:center; font-size:1.5em;}
 .name{	 font-size:14px; top:25px; left:-3px; padding:0; margin:0;}
