@@ -289,7 +289,7 @@ function playAudio1(natosnr) {
 					if(obj.track[1].event[i].data[0]>59 && obj.track[1].event[i].data[0] <73){				
 					natos1[jj] = obj.track[1].event[i].data[0];
 					jj++;}else{ 
-					navigator.notification.alert("Netinkamas MIDI failas", function(){}, "Klaida", "Ok");
+					navigator.notification.alert("Netinkamas MIDI failas", function ana(){}, "Klaida", "Ok");
 					//navigator.notification.prompt("Netinkamas MIDI failas", function(){}, "Klaida", "OK", "Atšaukti");
 					pasirinktiDaina(false); break; }
 				};
