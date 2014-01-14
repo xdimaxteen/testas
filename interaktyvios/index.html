@@ -276,7 +276,7 @@ function playAudio1(natosnr) {
 	//myMedia = new Media(path1[natosnr]);
 	//console.log(manoMedia[parseInt(natosnr)]);
 	manoMedia[parseInt(natosnr)].play(); 
-	//setTimeout(function(){myMedia.release();},2000);
+	setTimeout(function(){manoMedia[parseInt(natosnr)].stop();},1500);
 }
 	function MyCallback(obj){
 			var natos = new Array(); 
