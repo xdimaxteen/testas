@@ -133,7 +133,7 @@ th{color:#770064; background:#D962C7}
 .answer:active{
 	color:#D962C7;
 }
-.mid{min-height:360px;}
+.mid{min-height:360px; /*border-bottom:solid #3b5998 1px;*/}
 #meniu2{display:none;}
 
 canvas {width:800px;height:350px; background:none; outline:#133783 1px solid; margin-left:75px; }

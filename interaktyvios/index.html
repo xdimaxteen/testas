@@ -5,7 +5,6 @@
 <meta charset="utf-8" />
 <script src="phonegap.js"></script>
 <script src="JSMIDIparser.js"></script>
-
 <meta name="keywords" content="">
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 <style type="text/css">
@@ -25,62 +24,40 @@
 					<li> <a  href="#" onclick="keistiLygi(2); rodytiMeniu2(false);">Lygis 1</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(1); rodytiMeniu2(false);">Lygis 2</a> </li>
 					<li> <a  href="#" onclick="keistiLygi(3); rodytiMeniu2(false);">Lygis 3</a> </li>
-					<!--<li> <a  href="./apie.html" onclick="rodytiMeniu2(false)">Apie</a> </li>-->
 					<li> <a  href="#" onclick="rodytiMeniu2(false)">Uždaryti Meniu</a> </li>
 					<li> <a  href="#" onclick="navigator.app.exitApp()">Išjungti Aplikaciją</a> </li>
-					
 				</ul>
-				<!--<li> <a href="#" onclick="rodytiMeniu2(false);rodytiMeniu3(true);">Parinktys</a> </li>
-					<ul id="meniu3" >
-						
-						
-						<li> <a  href="#" onclick="rodytiMeniu3(false);">Twinkle Twinkle</a> </li>
-						<li> <a  href="#" onclick="rodytiMeniu3(false);">Du Gaideliai</a> </li>
-						
-						
-						<li> <a  href="#" onclick="rodytiMeniu3(false);">Uždaryti Meniu</a> </li> 
-					-->
-					</ul>
 			</ul>
 		</div>	
 		</nav>
 	<div class="page clearfix">
-		
-		
 		<div class="mid">
 			<div class ="content-wrapper clearfix">
 					<img class="clef" src="key.png"></img>
 					<canvas	id="canvas" width="800" height="350"></canvas>
 			</div><!--content wrapper-->
 		</div>
-		
 		<div class="bot clearfix">
-	
 							<div id="p-wrapper">
 								<ul class="piano-ul" id="piano">
 									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
 									<li ><button class="anchor" name="0" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('do1.mid');"><p id="c" class="name">Do</p></button></li>
-									<li ><button class="anchor" name="1" type="button" value="E"  onclick="atsakymas(this.name); perpiesti(); playAudio('re.mid'); "><p id="e" class="name">Re</p></button><span></span></li>
-									<li ><button class="anchor" name="2" type="button" value="D"  onclick="atsakymas(this.name); perpiesti(); playAudio('mi.mid'); "><p id="d" class="name">Me</p></button><span></span></li>
+									<li ><button class="anchor" name="1" type="button" value="D"  onclick="atsakymas(this.name); perpiesti(); playAudio('re.mid'); "><p id="d" class="name">Re</p></button><span></span></li>
+									<li ><button class="anchor" name="2" type="button" value="E"  onclick="atsakymas(this.name); perpiesti(); playAudio('mi.mid'); "><p id="e" class="name">Mi</p></button><span></span></li>
 									<li ><button class="anchor" name="3" type="button" value="F"  onclick="atsakymas(this.name); perpiesti();  playAudio('fa.mid');"><p id="f" class="name">Fa</p></button></li>
 									<li ><button class="anchor" name="4" type="button" value="G"  onclick="atsakymas(this.name); perpiesti();  playAudio('sol.mid');"><p id="g" class="name">Sol</p></button><span></span></li>
 									<li ><button class="anchor" name="5" type="button" value="A"  onclick="atsakymas(this.name); perpiesti(); playAudio('la.mid'); "><p id="a" class="name">La </p></button><span></span></li>
 									<li ><button class="anchor" name="6" type="button" value="B"  onclick="atsakymas(this.name); perpiesti(); playAudio('si.mid'); "><p id="h" class="name">Si </p></button><span></span></li>
 									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('do2.mid'); "><p id="c2" class="name">Do </p></button></li>									
 									<li ><button class="anchor"  name="0"  ></button><span></span></li>
-									
-
 								</ul>
 							</div>
 		</div>
-		
 	</div><!--page-->
 <script type="text/javascript">
 var canvas = document.getElementById('canvas'),
     context = canvas.getContext('2d'),
     endPoints = [
-      // { x: 0, y: 0 },
-      // { x: 600, y: 350 },
 	     { x: 0, y: 0 },
          { x: 1000, y: 1000 },
     ],
@@ -96,7 +73,6 @@ var dainosIlgis =0;
 var arPasirinktaDaina = false;
 function pasirinktiDaina(arPasirinkta){arPasirinktaDaina = arPasirinkta;}
 function bageseiDaina(){arPasirinktaDaina = false;}
-
 function drawStaff(color, stepx, stepy) {
 	context.save();
 	context.strokeStyle = color;
@@ -126,81 +102,57 @@ function drawOval(centerY, centerX, radius){
 	context.restore();
 }
 function drawNote(){
-if(iteracija <= dainosIlgis){
-note = natos1[iteracija];
-iteracija ++ ;
-switch(note){
-case 60: //do
-    drawOval(280,350,15);
-	context.save();context.lineWidth = 2;
-	context.beginPath();
-	context.moveTo(300, 280);
-	context.lineTo(390, 280);
-	context.stroke();
-   context.restore();
-  break;
-case 62: //re
-    drawOval(260,350,15);
-  break;
-case 64: //me
-    drawOval(240,350,15);	
-  break;
-case 65: //fa 
-    drawOval(220,350,15);
-  break;
-case 67: //sol
-    drawOval(200,350,15);
-  break;
-case 69: //la
-    drawOval(180,350,15);
-  break;
-case 71://si
-    drawOval(160,350,15); 
-  break;  
-case 72: //do
-    drawOval(140,350,15); //context.fillText("1", 430, 200);
-  break; 
-case 74: 
-    drawOval(120,350,15);
-  break; 
-case 76:
-    drawOval(100,350,15);
-	 break; 
-case 77:
-    drawOval(80,350,15);
-  break;  
-default:
-	drawOval(80,350,15);
-  break;  
-}
-}else{ arPasirinktaDaina= false; perpiesti(); }
+	if(iteracija <= dainosIlgis){
+		note = natos1[iteracija];
+		iteracija ++ ;
+		switch(note){
+			case 60: //do
+				drawOval(280,350,15);
+				context.save();context.lineWidth = 2;
+				context.beginPath();
+				context.moveTo(300, 280);
+				context.lineTo(390, 280);
+				context.stroke();
+			   context.restore();
+			  break;
+			case 62:  drawOval(260,350,15);  break;//re
+			case 64:  drawOval(240,350,15);	 break;//me
+			case 65:  drawOval(220,350,15);  break;//fa 
+			case 67:  drawOval(200,350,15);  break;//sol
+			case 69:  drawOval(180,350,15);  break;//la
+			case 71:  drawOval(160,350,15);  break;  //si
+			case 72:  drawOval(140,350,15);  break;  //context.fillText("1", 430, 200);//do
+			case 74:  drawOval(120,350,15);  break; 
+			case 76:  drawOval(100,350,15);	 break; 
+			case 77:  drawOval( 80,350,15);  break;  
+			default:  drawOval( 80,350,15);  break;  
+			}
+	}else{ arPasirinktaDaina= false; perpiesti(); }
 }
 function drawRandomNote(){
-
-note = Math.floor((Math.random()*10));
-switch(note){
-case 0: //do
-    drawOval(280,350,15);
-	context.save();context.lineWidth = 2;
-	context.beginPath();
-	context.moveTo(300, 280);
-	context.lineTo(390, 280);
-	context.stroke();
-   context.restore();
-  break;
-case 1:  drawOval(260,350,15);  break;//re
-case 2:  drawOval(240,350,15);	  break; //me
-case 3:  drawOval(220,350,15);  break; //fa 
-case 4:  drawOval(200,350,15);  break;//sol
-case 5:  drawOval(180,350,15);  break;//la
-case 6:  drawOval(160,350,15);   break;  //si
-case 7:  drawOval(140,350,15); //context.fillText("1", 430, 200);
-  break; //do
-case 8:  drawOval(120,350,15);  break; 
-case 9: drawOval(100,350,15);	 break; 
-case 10: drawOval(80,350,15);  break;  
-default:drawOval(80,350,15);  break;  
-}
+	note = Math.floor((Math.random()*10));
+	switch(note){
+		case 0: //do
+			drawOval(280,350,15);
+			context.save();context.lineWidth = 2;
+			context.beginPath();
+			context.moveTo(300, 280);
+			context.lineTo(390, 280);
+			context.stroke();
+		   context.restore();
+		  break;
+		case 1:  drawOval(260,350,15);  break;//re
+		case 2:  drawOval(240,350,15);  break; //me
+		case 3:  drawOval(220,350,15);  break; //fa 
+		case 4:  drawOval(200,350,15);  break;//sol
+		case 5:  drawOval(180,350,15);  break;//la
+		case 6:  drawOval(160,350,15);  break;  //si
+		case 7:  drawOval(140,350,15);  break; //do//context.fillText("1", 430, 200);
+		case 8:  drawOval(120,350,15);  break; 
+		case 9:  drawOval(100,350,15);  break; 
+		case 10: drawOval( 80,350,15);  break;  
+		default: drawOval( 80,350,15);  break;  
+		}
 }
 function atsakymas(reiksme1){
 	var reiksme = parseInt(reiksme1);
@@ -223,8 +175,8 @@ function atsakymas(reiksme1){
 			case 10:reiksme = 77;  break;  
 			default:reiksme = 77;  break;  
 		}		
-		if(reiksme == note ){points+=1;}	
-		else{	points-=1;}	
+		if(reiksme == note ){points+=2;}	
+		else{	points-=2;}	
 		
 	}
 }
@@ -252,72 +204,43 @@ function perpiesti(){
 		context.fillRect(750,80,7,160); 
 		context.fillRect(776,80,28,160); 
 	}
-	JSMIDIParser.IO('filereader', MyCallback);	
-	//var img = new Image();
-	//img.onload = function() {
-	//context.drawImage(img, 0, -10)}
-	//img.src = "key.png";
+	JSMIDIParser.IO('filereader', MyCallback);
 }
 
  function keistiLygi(lygis){
   points = 0;
   perpiesti();
  if(lygis == 1){
-
- var y=document.getElementById("c");
- y.innerHTML="C";
-  var y=document.getElementById("d");
- y.innerHTML="D";
-  var y=document.getElementById("e");
- y.innerHTML="E";
-  var y=document.getElementById("f");
- y.innerHTML="F"; 
- var y=document.getElementById("g");
- y.innerHTML="G";
-  var y=document.getElementById("a");
- y.innerHTML="A";
-   var y=document.getElementById("h");
- y.innerHTML="H";
-  var y=document.getElementById("c2");
- y.innerHTML="C";
+  var y=document.getElementById("c"); y.innerHTML="C";
+  var y=document.getElementById("d"); y.innerHTML="D";
+  var y=document.getElementById("e"); y.innerHTML="E";
+  var y=document.getElementById("f"); y.innerHTML="F"; 
+  var y=document.getElementById("g"); y.innerHTML="G";
+  var y=document.getElementById("a"); y.innerHTML="A";
+  var y=document.getElementById("h"); y.innerHTML="H"; 
+  var y=document.getElementById("c2"); y.innerHTML="C";
  }
  if(lygis == 2){
- points = 0;
- var y=document.getElementById("c");
- y.innerHTML="Do";
-  var y=document.getElementById("d");
- y.innerHTML="Re";
-  var y=document.getElementById("e");
- y.innerHTML="Me";
-  var y=document.getElementById("f");
- y.innerHTML="Fa"; 
- var y=document.getElementById("g");
- y.innerHTML="Sol";
-  var y=document.getElementById("a");
- y.innerHTML="La";
-   var y=document.getElementById("h");
- y.innerHTML="Si";
-  var y=document.getElementById("c2");
- y.innerHTML="Do";
+	points = 0;
+	var y=document.getElementById("c"); y.innerHTML="Do";
+	var y=document.getElementById("d"); y.innerHTML="Re";
+	var y=document.getElementById("e"); y.innerHTML="Mi";
+	var y=document.getElementById("f"); y.innerHTML="Fa"; 
+	var y=document.getElementById("g"); y.innerHTML="Sol";
+	var y=document.getElementById("a"); y.innerHTML="La";
+	var y=document.getElementById("h"); y.innerHTML="Si";
+	var y=document.getElementById("c2"); y.innerHTML="Do";
  }
  if(lygis == 3){
- points = 0;
- var y=document.getElementById("c");
- y.innerHTML=" ";
-  var y=document.getElementById("d");
- y.innerHTML=" ";
-  var y=document.getElementById("e");
- y.innerHTML=" ";
-  var y=document.getElementById("f");
- y.innerHTML=" "; 
- var y=document.getElementById("g");
- y.innerHTML=" ";
-  var y=document.getElementById("a");
- y.innerHTML=" ";
-   var y=document.getElementById("h");
- y.innerHTML=" ";
-  var y=document.getElementById("c2");
- y.innerHTML=" ";
+	points = 0;
+	var y=document.getElementById("c");  y.innerHTML=" ";
+	var y=document.getElementById("d");	 y.innerHTML=" ";
+	var y=document.getElementById("e");	 y.innerHTML=" ";
+	var y=document.getElementById("f");	 y.innerHTML=" "; 
+	var y=document.getElementById("g");	 y.innerHTML=" ";
+	var y=document.getElementById("a");	 y.innerHTML=" ";
+	var y=document.getElementById("h");	 y.innerHTML=" ";
+	var y=document.getElementById("c2"); y.innerHTML=" ";
  }
  }
 
@@ -329,33 +252,18 @@ function perpiesti(){
 }		
 
 function playAudio(src) {
-var path= "/android_asset/www/"+src;
-//myMedia = new Media("/android_asset/www/do.mid");
-myMedia = new Media(path);
-//myMedia = new Media("http://stud.if.ktu.lt/~deiost/4.mp3");
- myMedia.play(); 
- //myMedia.release();
+	var path= "/android_asset/www/"+src;//myMedia = new Media("/android_asset/www/do.mid");
+	myMedia = new Media(path);
+	myMedia.play(); 
+	setTimeout(function(){},1000);
+	myMedia.release();
 }
 	function MyCallback(obj){
-			//console.log("%o", obj);
-			//alert("Done! check your console Log for output dump");
 			var natos = new Array(); 
-			
 			var j =0; var jj=0;
-			/*
-			if(obj.track[1].event[12].data="Piano") {
-			for(var i=12; i < obj.track[1].event.length-1; i++){
-				if( (obj.track[1].event[i].data[1]) == 0){			
-					natos[j] = obj.track[1].event[i].data[0];
-					j++;
-				};
-			}//console.log(natos.toString());
-			}*/
 			pasirinktiDaina(true);
 			dainosIlgis = natos1.length;
 			iteracija = 0;
-			
-			
 			for(var i=12; i < obj.track[1].event.length-1; i++){
 				if( (obj.track[1].event[i].data[1]) == 0){
 					if(obj.track[1].event[i].data[0]>=60 && obj.track[1].event[i].data[0] <=72){				
@@ -364,14 +272,7 @@ myMedia = new Media(path);
 				};
 			}
 			perpiesti();
-			
 		}
-
-		// JSMIDIParser
-		
-		
-		
-
 </script>
 </body>
 </html>
