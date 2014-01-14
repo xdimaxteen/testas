@@ -255,8 +255,8 @@ function playAudio(src) {
 	var path= "/android_asset/www/"+src;//myMedia = new Media("/android_asset/www/do.mid");
 	myMedia = new Media(path);
 	myMedia.play(); 
-	setTimeout(function(){},1000);
-	myMedia.release();
+	setTimeout(function(){myMedia.release();},1500);
+	
 }
 	function MyCallback(obj){
 			var natos = new Array(); 
