@@ -286,9 +286,9 @@ function playAudio1(natosnr) {
 			iteracija = 0;
 			for(var i=12; i < obj.track[1].event.length-1; i++){
 				if( (obj.track[1].event[i].data[1]) == 0){
-					if(obj.track[1].event[i].data[0]>=60 && obj.track[1].event[i].data[0] <=72){				
+					if(obj.track[1].event[i].data[0]>59 && obj.track[1].event[i].data[0] <73){				
 					natos1[jj] = obj.track[1].event[i].data[0];
-					jj++;}else{ throw("Netinkamas midi failas"); pasirinktiDaina(false);break; }
+					jj++;}else{ navigator.notification.alert("Netinkamas MIDI failas", alertCallback, "klaida", "ok") pasirinktiDaina(false);break; }
 				};
 			}
 			perpiesti();
