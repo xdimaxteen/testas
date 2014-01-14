@@ -41,14 +41,14 @@
 							<div id="p-wrapper">
 								<ul class="piano-ul" id="piano">
 									<li ><button class="anchor" name="0"  ></button><!--<span></span>--></li>
-									<li ><button class="anchor" name="0" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio('do1.mid');"><p id="c" class="name">Do</p></button></li>
-									<li ><button class="anchor" name="1" type="button" value="D"  onclick="atsakymas(this.name); perpiesti(); playAudio('re.mid'); "><p id="d" class="name">Re</p></button><span></span></li>
-									<li ><button class="anchor" name="2" type="button" value="E"  onclick="atsakymas(this.name); perpiesti(); playAudio('mi.mid'); "><p id="e" class="name">Mi</p></button><span></span></li>
-									<li ><button class="anchor" name="3" type="button" value="F"  onclick="atsakymas(this.name); perpiesti();  playAudio('fa.mid');"><p id="f" class="name">Fa</p></button></li>
-									<li ><button class="anchor" name="4" type="button" value="G"  onclick="atsakymas(this.name); perpiesti();  playAudio('sol.mid');"><p id="g" class="name">Sol</p></button><span></span></li>
-									<li ><button class="anchor" name="5" type="button" value="A"  onclick="atsakymas(this.name); perpiesti(); playAudio('la.mid'); "><p id="a" class="name">La </p></button><span></span></li>
-									<li ><button class="anchor" name="6" type="button" value="B"  onclick="atsakymas(this.name); perpiesti(); playAudio('si.mid'); "><p id="h" class="name">Si </p></button><span></span></li>
-									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio('do2.mid'); "><p id="c2" class="name">Do </p></button></li>									
+									<li ><button class="anchor" name="0" type="button" value="C"  onclick="atsakymas(this.name); perpiesti();  playAudio1(0);"><p id="c" class="name">Do</p></button></li>
+									<li ><button class="anchor" name="1" type="button" value="D"  onclick="atsakymas(this.name); perpiesti(); playAudio1(1); "><p id="d" class="name">Re</p></button><span></span></li>
+									<li ><button class="anchor" name="2" type="button" value="E"  onclick="atsakymas(this.name); perpiesti(); playAudio1(2); "><p id="e" class="name">Mi</p></button><span></span></li>
+									<li ><button class="anchor" name="3" type="button" value="F"  onclick="atsakymas(this.name); perpiesti();  playAudio1(3);"><p id="f" class="name">Fa</p></button></li>
+									<li ><button class="anchor" name="4" type="button" value="G"  onclick="atsakymas(this.name); perpiesti();  playAudio1(4);"><p id="g" class="name">Sol</p></button><span></span></li>
+									<li ><button class="anchor" name="5" type="button" value="A"  onclick="atsakymas(this.name); perpiesti(); playAudio1(5); "><p id="a" class="name">La </p></button><span></span></li>
+									<li ><button class="anchor" name="6" type="button" value="B"  onclick="atsakymas(this.name); perpiesti(); playAudio1(6); "><p id="h" class="name">Si </p></button><span></span></li>
+									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio1(7); "><p id="c2" class="name">Do </p></button></li>									
 									<li ><button class="anchor"  name="0"  ></button><span></span></li>
 								</ul>
 							</div>
@@ -71,6 +71,15 @@ var natos1 = new Array();
 var interacija = 0;
 var dainosIlgis =0;
 var arPasirinktaDaina = false;
+var path1 = new Array();
+	path1[0]= "/android_asset/www/do1.mid";//myMedia = new Media("/android_asset/www/do.mid");
+	path1[1]= "/android_asset/www/re.mid";//myMedia = new Media("/android_asset/www/do.mid");
+	path1[2]= "/android_asset/www/mi.mid";//myMedia = new Media("/android_asset/www/do.mid");
+	path1[3]= "/android_asset/www/fa.mid";//myMedia = new Media("/android_asset/www/do.mid");
+	path1[4]= "/android_asset/www/sol.mid";//myMedia = new Media("/android_asset/www/do.mid");
+	path1[5]= "/android_asset/www/la.mid";//myMedia = new Media("/android_asset/www/do.mid");
+	path1[6]= "/android_asset/www/si.mid";//myMedia = new Media("/android_asset/www/do.mid");
+	path1[7]= "/android_asset/www/do2.mid";//myMedia = new Media("/android_asset/www/do.mid");
 function pasirinktiDaina(arPasirinkta){arPasirinktaDaina = arPasirinkta;}
 function bageseiDaina(){arPasirinktaDaina = false;}
 function drawStaff(color, stepx, stepy) {
@@ -256,7 +265,11 @@ function playAudio(src) {
 	myMedia = new Media(path);
 	myMedia.play(); 
 	//setTimeout(function(){myMedia.release();},2000);
-	
+}
+function playAudio1(natosnr) {
+	myMedia = new Media(path1[natosnr]);
+	myMedia.play(); 
+	//setTimeout(function(){myMedia.release();},2000);
 }
 	function MyCallback(obj){
 			var natos = new Array(); 
