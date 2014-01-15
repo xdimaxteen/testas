@@ -144,7 +144,7 @@ function drawNote(){
 			case 77:  drawOval( 80,350,15);  break;  
 			default:  drawOval( 80,350,15);  break;  
 			}
-	}else{ arPasirinktaDaina= false; perpiesti(); }
+	}else{ arPasirinktaDaina= false; iteracija=0; perpiesti(); }
 }
 function drawRandomNote(){
 	note = Math.floor((Math.random()*10));
@@ -285,21 +285,22 @@ function playAudio1(natosnr) {
 	//setTimeout(function(){manoMedia[parseInt(natosnr)].stop();},1500);
 }
 	function MyCallback(obj){
-			var natos = new Array(); 
 			var j =0; var jj=0;
 			pasirinktiDaina(true);
-			dainosIlgis = natos1.length;
+			
 			iteracija = 0;
 			for(var i=12; i < obj.track[1].event.length-1; i++){
 				if( (obj.track[1].event[i].data[1]) == 0){
-					if(obj.track[1].event[i].data[0]>59 && obj.track[1].event[i].data[0] <73){				
-					natos1[jj] = obj.track[1].event[i].data[0];
-					jj++;}else{ 
+					if(obj.track[1].event[i].data[0]>58 && obj.track[1].event[i].data[0] < 73){				
+						natos1[jj] = obj.track[1].event[i].data[0];
+						jj++;
+						}else{ 
 					//navigator.notification.alert("Netinkamas MIDI failas", function ana(){}, "Klaida", "Ok");
 					//navigator.notification.prompt("Netinkamas MIDI failas", function(){}, "Klaida", "OK", "Atšaukti");
-					pasirinktiDaina(false); }
+						pasirinktiDaina(false); }
 				};
 			}
+			dainosIlgis = natos1.length;
 			perpiesti();
 		}
 function onLoad() {
