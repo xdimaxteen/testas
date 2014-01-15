@@ -347,13 +347,23 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 }
 nav{height:70px;}
 .meniu {padding:1px; margin:3px;  margin-top:30px;}
-#meniu2{z-index:100;display:none; position:absolute; left:13px; padding:2px; margin:3px; background:#3b5998; width:265px; padding:10px;  }
-
+#meniu2{z-index:100;display:none; position:absolute; left:13px; bottom:20px;  margin:3px; background:#3b5998; width:265px; padding:10px;  }
+#meniu2 a{
+	color:#3b5998;
+	list-style:none;
+	text-decoration:none; 
+	text-transform:uppercase;
+	font-weight:bold;
+	padding:10px;
+	background-color:#FFF;
+	padding-right:20px;
+	padding-left:20px;
+}
 #meniu3{z-index:10;display:none; position:absolute;  padding:2px; margin:3px; background:#3b5998; width:260px; padding:10px;  }
 
 .meniu li a{padding:3px;  margin-left:3px; font-size:0.9em; 	 }
-#meniu2 li a{background:none;color:white; border-top: solid 1px white; 	display:block; padding: 10px;padding-top:12px; padding-bottom:12px;}
-#meniu2 li input{background:none; border-top: solid 1px white; 	display:block; padding: 10px}
+#meniu2 li a{background:none;color:white; border-top: solid 1px white; 	display:block; padding: 10px; padding-top:15px; padding-bottom:15px;}
+#meniu2 li input{background:none; border-top: solid 1px white; 	display:block; padding: 12px}
 #meniu3 li a{background:none;color:white; border-bottom: solid 1px white; 	display:block;}
 #meniu2 li a:focus{background:#133783;}
 #meniu3 li a:focus{background:#133783;}
@@ -423,10 +433,11 @@ canvas {width:460px;height:160px; background:none;   margin:1px; }
 #meniu2 li a{background:none;color:white;  	display:block; padding: 8px;}
 #meniu2 li a{  margin-left:3px; font-size:0.9em; 	 }
 #meniu2 li {border-top: solid 1px white;}
-#meniu2 li input{background:none;  	display:block; padding: 8px;}
+#meniu2 li input{background:none;  	display:block; padding: 5px;}
 #meniu2 a:active{
 	color:#133783;
 }
+.logo{display:none;}
 #meniu2 a{
 	color:#3b5998;
 	list-style:none;
