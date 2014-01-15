@@ -21,7 +21,7 @@
 	
 </style>
 </head>
-<body onload="perpiesti();inicializacija();onLoad()">
+<body onload="onLoad();">
 	<nav class="page-nav">
 		<div class="nav-inside">
 			<h1 class="logo">Muzikos Pamoka </h1>
@@ -97,10 +97,7 @@ var path1 = new Array();
 	path1[6]= "/android_asset/www/si.mid";//myMedia = new Media("/android_asset/www/do.mid");
 	path1[7]= "/android_asset/www/do2.mid";//myMedia = new Media("/android_asset/www/do.mid");
 var manoMedia = new Array();
-function inicializacija(){	
-for(var i=0; i < 8; i++){
-	manoMedia[i] = new Media(path1[i]);
-}}
+
 	
 function pasirinktiDaina(arPasirinkta){arPasirinktaDaina = arPasirinkta;}
 function bageseiDaina(){arPasirinktaDaina = false;}
@@ -314,6 +311,10 @@ function playAudio1(natosnr) {
 			perpiesti();
 		}
 function onLoad() {
+		for(var i=0; i < 8; i++){
+			manoMedia[i] = new Media(path1[i]);
+		};
+		perpiesti();
         document.addEventListener("deviceready", onDeviceReady, false);
 		menuDiv = document.querySelector("#menu");
     }
@@ -331,14 +332,14 @@ function onDeviceReady() {
 			console.log("close the menu");
 			menuDiv.style.display="none";
 			menuOpen = false;
-			document.getElementById('meniu2').style.display = 'block';
+			//document.getElementById('meniu2').style.display = 'block';
 			}
 	
 		else {
 			console.log("open the menu");
 			menuDiv.style.display="block";
 			menuOpen = true;
-			document.getElementById('meniu2').style.display = 'none';
+			//document.getElementById('meniu2').style.display = 'none';
 		}
     }	
 	

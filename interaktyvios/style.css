@@ -260,7 +260,7 @@ ul#piano li li {
   to {opacity:1;}
 }
 .name{	color:#3b5998; font-size:20px; position:relative; top:80px; font-weight:bold;}
-.mid {height:156px; margin:2px;}
+.mid {height:156px;}
 .clef{position:absolute;left:80px;top:-10px;}
 
 .custom-file-input::-webkit-file-upload-button {
