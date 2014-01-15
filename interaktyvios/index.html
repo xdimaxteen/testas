@@ -239,7 +239,7 @@ function perpiesti(){
 
  function keistiLygi(lygis){
   points = 0;
-  perpiesti();
+
  if(lygis == 1){
   var y=document.getElementById("c"); y.innerHTML="C";
   var y=document.getElementById("d"); y.innerHTML="D";
@@ -272,6 +272,7 @@ function perpiesti(){
 	var y=document.getElementById("h");	 y.innerHTML=" ";
 	var y=document.getElementById("c2"); y.innerHTML=" ";
  }
+   perpiesti();
  }
 
  function rodytiMeniu2(arRodyti){
@@ -330,15 +331,15 @@ function onDeviceReady() {
 			menuOpen = false;
 			document.getElementById('meniu2').style.display = 'block';
 			}
-}		
-		} else {
+	
+		else {
 			console.log("open the menu");
 			menuDiv.style.display="block";
 			menuOpen = true;
 			document.getElementById('meniu2').style.display = 'none';
 		}
     }	
-
+	
 		
 </script>
 </body>
