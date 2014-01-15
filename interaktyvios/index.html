@@ -99,6 +99,13 @@ function drawStaff(color, stepx, stepy) {
 		context.lineTo(context.canvas.width, i);
 		context.stroke();
    }
+   		context.fillStyle = 'black';
+		context.fillRect(750,80,7,160); 
+		context.fillRect(776,80,28,160); 
+		context.font = "bold  48px sans-serif ";
+		context.fillStyle = '#133783';
+		context.fillText("TAŠKAI:", 500, 300);
+		context.fillStyle = 'black';
   
 }
 function drawOval(centerY, centerX, radius){
@@ -206,22 +213,15 @@ function perpiesti(){
 		context.save();
 		context.font = "bold  48px sans-serif ";
 		context.fillStyle = '#133783';
-		context.fillText("TAŠKAI:", 500, 300);
 		context.fillText(points, 700, 300);
-		context.fillStyle = 'black';
-		context.fillRect(750,80,7,160); 
-		context.fillRect(776,80,28,160); 
 		context.restore();
 	}else{
 			drawRandomNote();	
 		context.save();	
 		context.font = "bold  48px sans-serif ";
 		context.fillStyle = '#133783';
-		context.fillText("TAŠKAI:", 500, 300);
 		context.fillText(points, 700, 300);
-		context.fillStyle = 'black';
-		context.fillRect(750,80,7,160); 
-		context.fillRect(776,80,28,160); 
+
 		context.restore();
 	}
 	JSMIDIParser.IO('filereader', MyCallback);
