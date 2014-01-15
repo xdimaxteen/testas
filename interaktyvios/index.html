@@ -9,15 +9,7 @@
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 <style type="text/css">
 
-	div#menu {
-		width: 30%;
-		background-color: yellow;
-		position:absolute;
-		bottom: 0;
-		left: 35%;
-		display:none;
-		z-index:50;
-	}
+
 	
 </style>
 </head>
@@ -25,10 +17,7 @@
 	<nav class="page-nav">
 		<div class="nav-inside">
 			<h1 class="logo">Muzikos Pamoka </h1>
-			<div id="menu">
-				<a href="">Option One</a><br/>
-				<a href="">Option Two</a>
-			</div>
+		
 			
 			<ul class="meniu">
 				<li><a href="#" onclick="rodytiMeniu2(true);rodytiMeniu3(false);" id="meniu-start">Meniu</a></li>
@@ -317,7 +306,7 @@ function onLoad() {
 		};
 		perpiesti();
        
-		menuDiv = document.querySelector("#menu");
+		
     }
 function onDeviceReady() {
 		
@@ -330,17 +319,15 @@ function onDeviceReady() {
 var menuOpen = false;	
     function onMenuKeyDown() {
 		if(menuOpen) {
-			console.log("close the menu");
-			menuDiv.style.display="none";
+			
 			menuOpen = false;
-			//document.getElementById('meniu2').style.display = 'block';
+			document.getElementById('meniu2').style.display = 'block';
 			}
 	
 		else {
-			console.log("open the menu");
-			menuDiv.style.display="block";
+		
 			menuOpen = true;
-			//document.getElementById('meniu2').style.display = 'none';
+			document.getElementById('meniu2').style.display = 'none';
 		}
     }	
 	

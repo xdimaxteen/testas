@@ -289,7 +289,7 @@ font-size: 0.9em;
 text-transform: uppercase;
 font-weight: bold;
   border: none;
-  border-bottom:1px solid white;
+
 }
 /*quaery*/
 /**************************************************/
@@ -348,11 +348,13 @@ ul#piano li a:active:before,ul#piano li button.anchor:active:before {
 }
 nav{height:70px;}
 .meniu {padding:1px; margin:3px;  margin-top:30px;}
-#meniu2{z-index:100;display:none; position:absolute;  padding:2px; margin:3px; background:#3b5998; width:250px; padding:10px;  }
-#meniu3{z-index:10;display:none; position:absolute;  padding:2px; margin:3px; background:#3b5998; width:250px; padding:10px;  }
+#meniu2{z-index:100;display:none; position:absolute; left:28px; padding:2px; margin:3px; background:#3b5998; width:265px; padding:10px;  }
+
+#meniu3{z-index:10;display:none; position:absolute;  padding:2px; margin:3px; background:#3b5998; width:260px; padding:10px;  }
 
 .meniu li a{padding:3px;  margin-left:3px; font-size:0.9em; 	 }
-#meniu2 li a{background:none;color:white; border-bottom: solid 1px white; 	display:block;}
+#meniu2 li a{background:none;color:white; border-top: solid 1px white; 	display:block; padding: 10px}
+#meniu2 li input{background:none; border-top: solid 1px white; 	display:block; padding: 10px}
 #meniu3 li a{background:none;color:white; border-bottom: solid 1px white; 	display:block;}
 #meniu2 li a:focus{background:#133783;}
 #meniu3 li a:focus{background:#133783;}
