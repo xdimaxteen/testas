@@ -298,11 +298,13 @@ font-weight: bold;
 .clef{position:absolute;left:10px;top:16px; height:175px;}
 .nav-inside{width:290px;margin:auto;}
 .mid{min-height:220px;} /*180px*/
+.lastas{width:10px;}
 ul#piano {
   height:80px;
-  width:300px;
+  width:270px;
 }
 ul#piano li {
+margin-left:auto;
   width:30px;
 }
 ul#piano li a, ul#piano li button.anchor {
@@ -378,8 +380,8 @@ form{width:auto;}
 .mid{min-height:180px;}
 ul#piano {
   height:80px;
-  width:470px;
-  margin-left:7px;
+  width:420px;
+  margin:auto;
 }
 
 ul#piano li {

@@ -16,6 +16,7 @@
 		bottom: 0;
 		left: 35%;
 		display:none;
+		z-index:50;
 	}
 	
 </style>
@@ -64,7 +65,7 @@
 									<li ><button class="anchor" name="5" type="button" value="A"  onclick="atsakymas(this.name); perpiesti(); playAudio1(5); "><p id="a" class="name">La </p></button><span></span></li>
 									<li ><button class="anchor" name="6" type="button" value="B"  onclick="atsakymas(this.name); perpiesti(); playAudio1(6); "><p id="h" class="name">Si </p></button><span></span></li>
 									<li ><button class="anchor" name="7" type="button" value="C"  onclick="atsakymas(this.name); perpiesti(); playAudio1(7); "><p id="c2" class="name">Do </p></button></li>									
-									<li ><button class="anchor"  name="0"  ></button><span></span></li>
+									<!--<li ><button class="anchor lastas"   name="0"  ></button><span></span></li>-->
 								</ul>
 							</div>
 		</div>
@@ -314,11 +315,12 @@ function playAudio1(natosnr) {
 		}
 function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
+		menuDiv = document.querySelector("#menu");
     }
 function onDeviceReady() {
 		console.log("devise redy");
         // Register the event listener
-		menuDiv = document.querySelector("#menu");
+		
         document.addEventListener("menubutton", onMenuKeyDown, false);
 		
     }	
