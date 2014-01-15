@@ -124,12 +124,13 @@ function drawNote(){
 		switch(note){
 			case 60: //do
 				drawOval(280,350,15);
-				context.save();context.lineWidth = 2;
+				context.save();
+				context.lineWidth = 2;
 				context.beginPath();
 				context.moveTo(300, 280);
 				context.lineTo(390, 280);
 				context.stroke();
-			   context.restore();
+			    context.restore();
 			  break;
 			case 62:  drawOval(260,350,15);  break;//re
 			case 64:  drawOval(240,350,15);	 break;//me
@@ -150,7 +151,8 @@ function drawRandomNote(){
 	switch(note){
 		case 0: //do
 			drawOval(280,350,15);
-			context.save();context.lineWidth = 2;
+			context.save();
+			context.lineWidth = 2;
 			context.beginPath();
 			context.moveTo(300, 280);
 			context.lineTo(390, 280);
@@ -199,19 +201,9 @@ function atsakymas(reiksme1){
 function perpiesti(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	drawStaff('black', 10, 10);
-	if(!arPasirinktaDaina){
-	drawRandomNote();	
-	context.font = "bold  48px sans-serif ";
-	context.fillStyle = '#133783';
-	context.fillText("TAŠKAI:", 500, 300);
-	context.fillText(points, 700, 300);
-	context.fillStyle = 'black';
-	context.fillRect(750,80,7,160); 
-    context.fillRect(776,80,28,160); 
-	}
-	if(arPasirinktaDaina){
-				
+	if(arPasirinktaDaina){	
 		drawNote();	
+		context.save();
 		context.font = "bold  48px sans-serif ";
 		context.fillStyle = '#133783';
 		context.fillText("TAŠKAI:", 500, 300);
@@ -219,6 +211,18 @@ function perpiesti(){
 		context.fillStyle = 'black';
 		context.fillRect(750,80,7,160); 
 		context.fillRect(776,80,28,160); 
+		context.restore();
+	}else{
+			drawRandomNote();	
+		context.save();	
+		context.font = "bold  48px sans-serif ";
+		context.fillStyle = '#133783';
+		context.fillText("TAŠKAI:", 500, 300);
+		context.fillText(points, 700, 300);
+		context.fillStyle = 'black';
+		context.fillRect(750,80,7,160); 
+		context.fillRect(776,80,28,160); 
+		context.restore();
 	}
 	JSMIDIParser.IO('filereader', MyCallback);
 }
@@ -293,7 +297,7 @@ function playAudio1(natosnr) {
 					jj++;}else{ 
 					//navigator.notification.alert("Netinkamas MIDI failas", function ana(){}, "Klaida", "Ok");
 					//navigator.notification.prompt("Netinkamas MIDI failas", function(){}, "Klaida", "OK", "Atšaukti");
-					pasirinktiDaina(false); break; }
+					pasirinktiDaina(false); }
 				};
 			}
 			perpiesti();
