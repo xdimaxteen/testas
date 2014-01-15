@@ -90,7 +90,7 @@ var manoMedia = new Array();
 function pasirinktiDaina(arPasirinkta){arPasirinktaDaina = arPasirinkta;}
 function bageseiDaina(){arPasirinktaDaina = false;}
 function drawStaff(color, stepx, stepy) {
-	context.save();
+	
 	context.strokeStyle = color;
 	context.lineWidth = 2;
 	for (var i = 80; i <= 260; i += 40) {
@@ -99,7 +99,7 @@ function drawStaff(color, stepx, stepy) {
 		context.lineTo(context.canvas.width, i);
 		context.stroke();
    }
-   context.restore();
+  
 }
 function drawOval(centerY, centerX, radius){
     context.save();
