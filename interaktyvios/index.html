@@ -315,6 +315,7 @@ function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
 function onDeviceReady() {
+		console.log("devise redy");
         // Register the event listener
 		menuDiv = document.querySelector("#menu");
         document.addEventListener("menubutton", onMenuKeyDown, false);
@@ -327,10 +328,14 @@ function onDeviceReady() {
 			console.log("close the menu");
 			menuDiv.style.display="none";
 			menuOpen = false;
+			document.getElementById('meniu2').style.display = 'block';
+			}
+}		
 		} else {
 			console.log("open the menu");
 			menuDiv.style.display="block";
 			menuOpen = true;
+			document.getElementById('meniu2').style.display = 'none';
 		}
     }	
 
