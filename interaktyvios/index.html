@@ -311,22 +311,23 @@ function playAudio1(natosnr) {
 			perpiesti();
 		}
 function onLoad() {
+		document.addEventListener("deviceready", onDeviceReady, false);
 		for(var i=0; i < 8; i++){
 			manoMedia[i] = new Media(path1[i]);
 		};
 		perpiesti();
-        document.addEventListener("deviceready", onDeviceReady, false);
+       
 		menuDiv = document.querySelector("#menu");
     }
 function onDeviceReady() {
-		console.log("devise redy");
-        // Register the event listener
 		
+        // Register the event listener
         document.addEventListener("menubutton", onMenuKeyDown, false);
 		
     }	
    // Handle the menu button
     //
+var menuOpen = false;	
     function onMenuKeyDown() {
 		if(menuOpen) {
 			console.log("close the menu");
